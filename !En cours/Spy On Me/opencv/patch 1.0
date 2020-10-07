@@ -1,0 +1,6 @@
+use pwd to find the current directory and then use what you would use to find the file directory 
+if those two are different save to the file directory
+
+This is a patch but what it means to find the file directory ?
+
+en attendant on peu utiliser absolute path

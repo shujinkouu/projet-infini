@@ -49,7 +49,7 @@ video_type_cv2 = get_video_type(filename)
 
 #out = cv2.VideoWriter("output.mp4", int(cv2.VideoWriter_fourcc(*"XVID")), 24.0, 1920, 1080, cap)
 
-out = cv2.VideoWriter("output.mp4", cv2.VideoWriter_fourcc(*"XVID"), 24.0, (1280, 720))
+out = cv2.VideoWriter("C:\\Users\Asus\Documents\projet-infini\!En cours\Spy On Me\opencv\output\output.mp4", cv2.VideoWriter_fourcc(*"XVID"), 24.0, (1280, 720))
 #out = cv2.VideoWriter(filename, video_type_cv2, frames_per_seconds, dims)
 
 
