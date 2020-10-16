@@ -1,0 +1,27 @@
+INTERNAL DATA TRANSFERT & POWER TRANSFER
+
+DATA TRANSFERT:
+SATA
+PCI-E
+NVMI (new)
+PCI (old)
+CPU Socket
+
+POWER TRANSFERT:
+power on/off button
+reset button
+psu power plug 4 or 8 pins
+psu power plug 20 or 24 pins
+fan header 
+
+other things things for the users interction with the machine:
+usb2.0/3.0 connector
+leds connector
+
+i/o (this is the direct interface between the motherboard and the user)
+usb3.0/2.0/c plugs
+audio jacks
+
+
+
+ 
