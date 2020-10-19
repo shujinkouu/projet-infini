@@ -120,21 +120,30 @@ def KeyBind():
 
 
 def Rename(timecode):
+    length = int(media.get_length())
+    time = int(media.get_time())
     media.stop()
     name = os.path.basename(old_file_name)
-    if isinstance(name[1], int) != False:
+    if isinstance(int(name[1]), int) != False:
         if name[0] == "{":
-            #print("we have a maybe timecode")
+            print("we have a maybe timecode")
             try:
                 if int(name[1]) % 1 == 0:
-                    #print('this is a timecode')
+                    print('this is a timecode')
                     indexofendtimecode = name.rfind("}") + 1
                     name = name[indexofendtimecode:]
                     #print(name)
             except ValueError:
                 print('this is a string')
-    if media.get_time()>=media.get_length()-5000:
+    else:
+        pass
+        #print(name[1])
+        #print(isinstance(name[1], int))
+        #print('u have a pb')
+    if time>=length-5000:
         name = '_' + name
+        print(media.get_time())
+        print(media.get_length())
     else:
         name = "{" + timecode + "}" + name
     path = os.path.dirname(old_file_name)
