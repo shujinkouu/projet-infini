@@ -124,7 +124,13 @@ def Rename(timecode):
     time = int(media.get_time())
     media.stop()
     name = os.path.basename(old_file_name)
-    if isinstance(int(name[1]), int) != False:
+    try:
+        name_=int(name[1])
+    except ValueError:
+        name_=name[1]
+        print('oops value error')
+    
+    if isinstance(name_, int) != False:
         if name[0] == "{":
             print("we have a maybe timecode")
             try:
