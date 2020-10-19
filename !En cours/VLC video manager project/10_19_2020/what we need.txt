@@ -1,0 +1,29 @@
+ok so when we press we can do stuff which is great.
+
+ok so when I press x I should be able to:
+
+if keyboard.is_pressed('')
+
+skip and go back 5 sec (keybind is arrow keys left right)
+drop and augment the volume (keybind is arrow keys up down)
+play and pause (keybind is space)
+
+
+
+We need to modify the rename function
+so it will first check if a _ is present if it is there do nothing
+then check if a timecode is already present {hh-mm-ss}
+if it is there nuke the old timecode and replace it with a new one
+comment should now be put into [] brackets to avoid problems.
+
+code hunt:
+
+volume control:
+audio_get_volume()
+
+location control:
+get_time()
+set_time()
+
+pause/play:
+pause()/play()
