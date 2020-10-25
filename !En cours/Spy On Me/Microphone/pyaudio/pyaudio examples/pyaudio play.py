@@ -9,7 +9,7 @@ if len(sys.argv) < 2:
     print("Plays a wave file.\n\nUsage: %s filename.wav" % wave)
     sys.exit(-1)
 '''
-wf = wave.open("C:\\Users\\Asus\\Desktop\\pyaudio examples\\filename.wav", 'rb')
+wf = wave.open("C:\\Users\Asus\Documents\projet-infini\!En cours\Spy On Me\pyaudio\pyaudio examples\\filename.wav", 'rb')
 
 p = pyaudio.PyAudio()
 
@@ -20,8 +20,7 @@ stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
 
 data = wf.readframes(CHUNK)
 
-print('test')
-
+print("audio should be playing")
 
 while data != '':
     stream.write(data)
