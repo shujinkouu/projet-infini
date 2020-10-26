@@ -18,3 +18,7 @@ duration = 10.5 # seconds
 >>> sd.play(myrecording, fs)
 
 so far we can record audio and play it back to the user, can't save it locally yet
+
+with from scipy.io.wavfile import write
+
+write('example.wav', fs, myrecording)
