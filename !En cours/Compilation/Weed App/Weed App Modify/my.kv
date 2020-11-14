@@ -1,5 +1,5 @@
 #:kivy 1.1
-## according to https://kivy.org/doc/stable/examples/gen__application__app_with_kv__py.html 
+	## according to https://kivy.org/doc/stable/examples/gen__application__app_with_kv__py.html 
 ## This is how things are supposed to be presented #:kivy 1.1
 #:import Factory kivy.factory.Factory
 
@@ -117,21 +117,24 @@
             cols:2
 #My first label
             Label:
-                text: "var1"
+			    #var 1 is how much money you paid
+                text: "for what price you bought your weed"
 #The first user provided variable
             TextInput:
                 id: var1
                 multiline:False
 #ect..
+            #var2 is  how many grams you bought
             Label:
-                text: "var2"
+                text: "how many grams you bought"
 #Multiline is set to false so that the user can only give me one line
             TextInput:
                 id: var2
                 multiline:False
 
+            #var3 is how much you put into your grinder
             Label:
-                text: "var3"
+                text: "how much you put into your grinder"
 
             TextInput:
                 id: var3

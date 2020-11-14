@@ -1,0 +1,16 @@
+Ok I met V2 he feels the string modification way is ineficient
+
+we thought I could strip the thumbnail from youtube with pytube and put it on the video
+as thumbnail for the .mp4 file, so when we are there we can just include new information in the thumbnail
+like color code of three hexadecimal color that can input as many information as we want in there and it can be as large
+or as little as we wantnce there we can also encode information like category little symbols ect..
+
+that would mean storing info in hexadecimal
+
+000000
+
+0-15 
+0123456789abcdef
+
+(15**6)**3
+1.477.891.880.035.400.390.625
