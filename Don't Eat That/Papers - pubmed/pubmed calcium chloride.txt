@@ -11,12 +11,12 @@ https://pubmed.ncbi.nlm.nih.gov/6844212/{Sodium chloride for broiler breeders}_S
 https://pubmed.ncbi.nlm.nih.gov/29384991/{reply}_
 https://pubmed.ncbi.nlm.nih.gov/31060286/{Dietary Habits Bursting into the Complex Pathogenesis of Autoimmune Diseases: The Emerging Role of Salt from Experimental and Clinical Studies}*
 https://pubmed.ncbi.nlm.nih.gov/5374932/{Teratogenic effects of sodium chloride in mice}_Sodium Chloride
-https://pubmed.ncbi.nlm.nih.gov/3352704/
-https://pubmed.ncbi.nlm.nih.gov/13831173/
-https://pubmed.ncbi.nlm.nih.gov/13000527/
-https://pubmed.ncbi.nlm.nih.gov/30108340/
-https://pubmed.ncbi.nlm.nih.gov/29895376/
-https://pubmed.ncbi.nlm.nih.gov/28916382/
+https://pubmed.ncbi.nlm.nih.gov/3352704/{Sodium chloride and essential hypertension}_Sodium Chloride
+https://pubmed.ncbi.nlm.nih.gov/13831173/{Sodium chloride metabolism in man}_Sodium Chloride
+https://pubmed.ncbi.nlm.nih.gov/13000527/{Chronic sodium chloride toxicity in the albino rat. I. Growth on a purified diet containing various levels of sodium chloride}_Sodium Chloride
+https://pubmed.ncbi.nlm.nih.gov/30108340/{Never give up correcting your lifestyle! The beginning is always the hardest!}*
+https://pubmed.ncbi.nlm.nih.gov/29895376/{Effect of various calcium salts on non-heme iron bioavailability in fasted women of childbearing age}*
+https://pubmed.ncbi.nlm.nih.gov/28916382/{Influence of ß-lactoglobulin and calcium chloride on the molecular structure and interactions of casein micelles}*
 https://pubmed.ncbi.nlm.nih.gov/383576/
 https://pubmed.ncbi.nlm.nih.gov/30708272/
 https://pubmed.ncbi.nlm.nih.gov/26344138/
