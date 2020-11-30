@@ -13,7 +13,7 @@ def dlbyitag():
     itag = useritag.get()
     yt = pytube.YouTube(url)
     video = yt.streams.get_by_itag(itag)
-    video.download("D:\\")
+    video.download("C:\\Users\Asus\Documents\projet-infini\Download Everything\downloader\output of youtubed")
 
 
 

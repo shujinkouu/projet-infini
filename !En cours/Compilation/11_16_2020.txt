@@ -1,0 +1,5 @@
+to get back the pong app we need the original video we used for that digging in harddrives is necessary
+
+ubuntu is downloaded and installed to the virtual machine, I got the wifi to work and python installed
+now I need to install kivy on it
+
