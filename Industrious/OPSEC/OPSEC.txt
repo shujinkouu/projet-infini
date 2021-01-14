@@ -1,0 +1,5 @@
+OPSEC is the concept of operation security, since I'm very cloak and dagger style I'd love to incorporate some opsec elements in my operations!
+
+https://afwm.org/pre-grad/operational-security-opsec/
+https://news.clearancejobs.com/2020/08/03/dod-introduces-new-opsec-training-requirements/
+https://fr.wikipedia.org/wiki/OPSEC#:~:text=OPSEC%20(pour%20%C2%AB%20Operations%20security%20%C2%BB,un%20adversaire%20%C3%A0%20cette%20structure.
