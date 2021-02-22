@@ -3,10 +3,10 @@
 (1$)ref=https://coinscatalog.net/canada/bronze-plated-nickel?denomination=73&currency=21&year_from=1968&year_to=2000
 (2$)ref=https://coinscatalog.net/canada/2-dollars/4?year_from=1987&year_to=2012
 2$ value can be assumed to be around 2.5$
-1$ value can be assumed to be around 2$ 
-25 cents value can be assumed to be around 0.75cent - 1$
-10 cents value can be assumed to be around 0.15cent - 0.50cent
-5 cents value can be assumed to be around 0.25cent
+1$ value can be assumed to be around 2$
+25 cents value can be assumed to be around 0.50cent
+10 cents value can be assumed to be around 0.25cent
+5 cents value can be assumed to be around 0.10cent
 
 therefore 5 cent in nickel = 0.25cent
 10 cents in nickel = 0.50 cent
