@@ -1,0 +1,1 @@
+we can open the camera visualize the output record it and save it locally to a .mp4

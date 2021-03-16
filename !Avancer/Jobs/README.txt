@@ -1,1 +1,0 @@
-Cette section est consacrer a parler de jobs certaine personne vois ca comme leurs vie ici je les traites comme une partie de ma vie, duquel je suis capable de me detacher et d'analyser.

@@ -1,8 +1,0 @@
-https://medium.com/better-programming/geolocation-and-geocodes-in-python-e71e056ffaea
-
-import geocoder
->>> g = geocoder.ip('me')
->>> g.latlng
->>> g.address
-
-this gets the relative adress
