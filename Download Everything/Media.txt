@@ -1,8 +1,0 @@
-So we got a lot of downloaded already up in videos and on all my laptops
-system for video is
-
-{timecode} - nothing where we are in the current video
-_ - nothing the video as been watched entirely
-{corrupted} - download it again and delete the corrupted files
-
-we'll slowly create a full on system to browse downloaded media 

@@ -1,7 +1,0 @@
-import vlc
-from vlc import MediaPlayer
-
-#!!Id Variable
-path=
-
-media = vlc.MediaPlayer(path)
