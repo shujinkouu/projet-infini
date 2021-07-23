@@ -1,0 +1,4 @@
+the idea is when we do a research exemple on the feature of notepad++
+
+lets save all the youtube links in a file lets call that file a downloadstream
+when we can we download the downloadstream and save them in a media pool for offline consumption!

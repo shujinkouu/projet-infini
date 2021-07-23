@@ -1,0 +1,11 @@
+"""
+vlc project
+the objective is to control vlc with cmd using python
+then it is to wire folder management with python
+we would need to figure out the timing at which a video playing on vlc is at 
+and we would need to figure out renaming documents on the c:\\drive
+we could then write {timecode} - NameOfVid and then if the video is finished or within 30 sec of finishing
+renaming it _NameOfVid
+
+that's it for now further objectives would include having a ui folder crawler and video manager :)
+"""

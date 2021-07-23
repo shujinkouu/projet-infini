@@ -1,0 +1,28 @@
+ok so here is all you need
+
+import pytube
+
+def dl():
+    url = userurl.get()
+    yt = pytube.YouTube(url)
+    print(yt.streams)
+
+
+#url = "url"
+#yt = pytube.YouTube(url)
+
+
+#itag = 'itag'
+#video = yt.streams.get_by_itag(itag)
+#path = "path"
+#video.download(path)
+
+
+
+window = Tk()
+window.title("api barebone")
+
+userurl = StringVar()
+
+Button(window,width=20,text="Download",font=("Calibri",12), command=dl).grid(sticky=N,row=3,pady=15)
+Entry(window,width=50,textvariable=userurl).grid(sticky=N,row=2)

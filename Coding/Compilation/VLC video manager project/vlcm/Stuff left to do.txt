@@ -1,0 +1,18 @@
+so here is the stuff not yet coded, take the timecode {hh.mm.ss} and extract hh.mm.ss
+
+multiply in a way to make it ms again so
+total = HH + MM + SS * 1000 
+HH = hh * 3600
+MM = mm * 60
+SS = ss
+
+then use that to set_time(ms)
+
+this will enable us to go back to the timecode we already have the engine to change the name to the new timecode
+we need to find a way to grab current timecode by using get_time() instead of get_lenght()
+
+we also need to get rid of the {.0.0} format maybe with a bit of code that feel the location of the first . and if it happens on
+the 0 spot it simply removes it. timecodewithout. = timecode[timecode.indeof("."):]
+
+a last step is to figure out if we are done so if lenght = the current time or near it then the timecode and the - should be removed
+and replaced by _

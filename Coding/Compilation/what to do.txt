@@ -1,0 +1,8 @@
+we should figure out how we created the pong game compiled app, then epurate it until it's empty
+then test for a hello world button app then simply add the feature one by one then build slowly making
+sure all step build correctly
+
+-so first thing is geting back the pong app
+-then building it once more for practice
+-then epurating it
+-then building the pure version "hello world"

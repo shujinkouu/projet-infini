@@ -1,0 +1,7 @@
+this idea is for the how to code project,
+
+the idea is simple show side by side for any specific piece of software
+what it looks like on a computer if you have it installed
+ei you go on the terminal and press py then enter for example 
+vs what it looks like on a computer if you don't have it installed 
+showing the delta between both

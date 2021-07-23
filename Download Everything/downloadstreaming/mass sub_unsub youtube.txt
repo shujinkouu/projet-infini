@@ -1,0 +1,21 @@
+mass subscription unsubscription program in selenium
+
+two .txt document
+opens unscubscribe document
+unsubscribe from first link
+ect until done
+
+open subscribe document
+subscibe from the first link
+ect until done
+
+info for realisation:
+needs connection algo:
+connecting cannot be done without the cookie trick used in other similar script! this definitely needs to be fished and understood for later use
+s
+connectbtn = driver.find_element_by_xpath("/html/body/ytd-app/div/div/ytd-masthead/div[3]/div[3]/div[2]/ytd-button-renderer")
+emailfield = driver.find_element_by_id("identifierId")
+emailbtn = driver.find_element_by_id("identifierNext")
+
+
+subbtn = driver.find_element_by_id("subscribe-button")    

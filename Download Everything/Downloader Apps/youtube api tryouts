@@ -1,0 +1,41 @@
+import pytube
+from tkinter import *
+
+def dl():
+    url = userurl.get()
+    print(url)
+    try:
+        youtube = pytube.YouTube(url)
+        #video = youtube.streams.first()
+        #video.download("C:\\Users\Asus\Documents\projet-infini\Download Everything\downloader\output of youtubed")
+    except Exception as e:
+        print(e)
+        print('error btw')
+
+
+
+
+url = "url"
+
+
+#youtube = pytube.YouTube(video_url)
+
+#select first stream by understanding stream and how to display them we could select them through the stream object
+#video = youtube.streams.first()
+#video.download("C:\\Users\Asus\Documents\projet-infini\Download Everything\downloader\output of youtubed")
+
+window = Tk()
+window.title("youtube api tryouts")
+
+userurl = StringVar()
+
+Button(window,width=20,text="Download",font=("Calibri",12), command=dl).grid(sticky=N,row=3,pady=15)
+#Button(window,width=20,text="Download",font=("Calibri",12)).grid(sticky=N,row=3,pady=15)
+
+Entry(window,width=50,textvariable=userurl).grid(sticky=N,row=2)
+
+window.mainloop()
+
+
+
+#litofstreams = youtube.streams.all()
