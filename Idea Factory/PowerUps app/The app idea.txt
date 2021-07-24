@@ -1,0 +1,7 @@
+So the app idea is to enable the user to organize his powerups for the day, so you have the media pool in the background,
+of that pool you'd pickup 3 album let's say as well as 2 podcast for a day
+
+you'd be limited to those for 24 hours for a day and you'd get new ones every single day.
+you can fine tune the rate of return of those power ups as well as how many you can have every da of each kind.
+
+you can use relaxing sounds too like nature sounds ect. as a powerup

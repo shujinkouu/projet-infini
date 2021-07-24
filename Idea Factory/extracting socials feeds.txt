@@ -1,0 +1,8 @@
+so I think I wrote that somewhere else before
+to have multiple account which are saturated
+then we'd need to find a way to extract those feeds from the accounts 
+the we can put them on a list as button you can click to scroll different feeds
+this would totally defeat the algorithm allowing one to scroll many different personalized fields
+instead of one personalized field, one could choose the subject of each feed by tweaking with the account
+this would easily blow out most biases and echo bubbles out there
+would be saved offline and encrypted for private scrolling

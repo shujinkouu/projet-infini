@@ -1,0 +1,4 @@
+so we wanted for a long time to have one interface to post on all social all at once. the plan A
+is to connect to the api of those apps and use these to post, plan b is there specifically because 
+most api will not be open and useable to us. Plan b is to emulate a browser using selenium and to 
+use that browser to connect to the site from the outside and post.

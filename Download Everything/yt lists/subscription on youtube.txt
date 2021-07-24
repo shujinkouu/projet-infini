@@ -1,0 +1,25 @@
+stale:
+	https://www.youtube.com/user/hazimtahir0
+	https://www.youtube.com/user/2veritasium
+	https://www.youtube.com/c/8booth/videos
+	-1791
+	https://www.youtube.com/c/1791dow/videos
+	https://www.youtube.com/channel/UCCNh0C1DwimLOasaMjHbOBg/videos
+	
+	other:
+	https://www.youtube.com/c/AcceleratorOne/videos
+
+active:
+	-3blue1brown
+	https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw
+	https://www.youtube.com/user/academyofideas
+	
+	other:
+	https://www.youtube.com/c/Passage004/videos
+	https://www.youtube.com/c/6061com/videos
+	https://www.youtube.com/user/Abom79
+	https://www.youtube.com/c/ActuallyHardcoreOverclocking/videos
+
+
+
+
