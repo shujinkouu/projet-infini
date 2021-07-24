@@ -1,24 +1,24 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from time import sleep
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.common.exceptions import NoSuchElementException
+
+from tkinter.filedialog import askopenfilename
+from time import sleep
 import base64
 import os, sys
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from selenium import webdriver
-#This is old news it used to work now it doesn't
-#import instabot
-#from instabot import Bot
-from tkinter.filedialog import askopenfilename
 
-#instagram is in construction but priority is now making the prototype
+#prototype is done and working 
+#actually number one priority is making sure we are updating the right version, the right version has access to linkedin,facebook,twiiter and gab and waits for element to load before clicking
+#it aso has a failsafe builtin for twitter
+#next priority is now making instagram function
 
 """
 text posting services:
@@ -46,7 +46,8 @@ def databaseinit():
     try:
         os.mkdir(path)
     except:
-        print("we already have a database")
+        pass
+        #print("we already have a database")
 
 #getting to the locally saved webdriver here geckodriver
 def getdriver():
@@ -59,7 +60,6 @@ def ex_insta():
     #thanks to @Hawlett on this post "https://stackoverflow.com/questions/46771456/how-to-automate-firefox-mobile-with-selenium" for the insight
     #so this opens a special firefox driver which is on mobile
     user_agent = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16"
-    profile = webdriver.FirefoxProfile()
     profile = webdriver.FirefoxProfile()
     profile.set_preference("general.useragent.override", user_agent)
     driver = webdriver.Firefox(profile)
