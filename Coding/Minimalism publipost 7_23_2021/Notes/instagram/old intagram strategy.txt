@@ -1,0 +1,20 @@
+this was originally found by Roseanne should work yet it doesn't
+it does use the terminal to post to instagram directly
+
+    """
+    path = askopenfilename()
+    print("hi")
+    print(emailinsta +" password:"+ passwordinsta)
+    bot = Bot()
+    print("bot initialized")
+    try:
+        print('trying to login')
+        #bot.login(username = emailinsta, password = passwordinsta)
+        bot.login(username = "rosealalune", password = "snoupie31")
+        print('logged in')
+    except:
+        print('error')
+    #print("logged in trying to upload")
+    bot.upload_photo(path, caption = msg)
+    print("technically got posted")
+    """
