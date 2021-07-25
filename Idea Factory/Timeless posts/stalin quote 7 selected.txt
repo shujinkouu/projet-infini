@@ -6,9 +6,17 @@ than two really bad
 
 *1.“It is difficult for me to imagine what "personal liberty" is enjoyed by an unemployed person, who goes about hungry, and cannot find employment. Real liberty can exist only where exploitation has been abolished, where there is no oppression of some by others, where there is no unemployment and poverty, where a man is not haunted by the fear of being tomorrow deprived of work, of home and of bread. Only in such a society is real, and not paper, personal and every other liberty possible.” ― Joseph Stalin
 
+<<<<<<< HEAD
+*2.“In the Soviet Union, it's takes more courage to retreat than advance.”
+― Joseph Stalin
+
+*3.“People who cast the votes decide nothing. The people who count the votes decide everything.”
+― Josef Stalin
+=======
 *2.“In the Soviet Union, it's takes more courage to retreat than advance.” ― Joseph Stalin
 
 *3.“People who cast the votes decide nothing. The people who count the votes decide everything.” ― Josef Stalin
+>>>>>>> d2a9042343b9b50446e1ac721c441744f5474d92
 
 *4.“Quantity has a quality all its own.” ― Joseph Stalin
 
