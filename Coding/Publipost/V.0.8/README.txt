@@ -1,3 +1,11 @@
+as of 7_26_2021:
+this is working succesfully for the 4 services we are doing
+linkedin gab twitter and facebook
+twitter is having some problems right now and will need some hamering down !
+
+
+
+"""this is old news
 the goal right now is minimalism
 
 prototype has been built from this version 

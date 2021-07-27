@@ -14,7 +14,12 @@ import os, sys
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+#This is outdated was a terminal tool to post on from tkinter.filedialog import askopenfilename
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.ui import WebDriverWait
 
+#instagram is in construction but priority is now making the prototype
 #prototype is done and working 
 #actually number one priority is making sure we are updating the right version, the right version has access to linkedin,facebook,twiiter and gab and waits for element to load before clicking
 #it aso has a failsafe builtin for twitter
@@ -22,6 +27,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 """
 text posting services:
+parler.com                      
 minds.com
 instagram.com* (requires a picture in every post no all text allowed)
 mastodon.com
@@ -55,6 +61,33 @@ def getdriver():
     driver = webdriver.Firefox(executable_path=cwd+"//geckodriver.exe")
     return driver
 
+def ex_linkedin():
+    login = linkedinemail
+    password = linkedinpass
+    driver = getdriver()
+    driver.get('https://www.linkedin.com/')
+    sleep(5)
+    #login access:
+    a = driver.find_element_by_id('session_key')
+    a.send_keys(login)
+    #password access:
+    b = driver.find_element_by_id("session_password")
+    b.send_keys(password)
+    #login btn:
+    c = driver.find_element_by_class_name("sign-in-form__submit-button")
+    c.click()
+    sleep(5)
+    #post btn:
+    d = driver.find_element_by_xpath('/html/body/div[6]/div[3]/div/div/div/div/div/main/div[1]/div/div[1]/button/span')
+    d.click()
+    sleep(2)
+    box = driver.switch_to.active_element
+    box.send_keys(msg)    
+    #posting:
+    d = driver.find_element_by_class_name('share-box_actions')
+    sleep(1)
+    d.click()                     
+
 #instagram
 def ex_insta():
     #thanks to @Hawlett on this post "https://stackoverflow.com/questions/46771456/how-to-automate-firefox-mobile-with-selenium" for the insight
@@ -69,7 +102,7 @@ def ex_insta():
     
     magicnumber = 2
     sleep(magicnumber)    
-    
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]")))    
     skipbtnxpath = "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]"
     skipbtn = driver.find_element_by_xpath(skipbtnxpath)
     skipbtn.click()
@@ -120,28 +153,32 @@ def credentialsgab():
     return email,password
 
 def getcontrolgab(driver):
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.ID, "user_email")))                                               
     a = driver.find_element_by_id('user_email')
     b = password = driver.find_element_by_id('user_password')
     c = driver.find_element_by_name("button")
     return a,b,c
 
 def injectcredentialsgab(a,b,c,email,password):
-    sleep(3)
+    #sleep(3)
     a.send_keys(email)
     b.send_keys(password)
     c.click()
 
 def postinggab(driver,msg):
-    sleep(2)
+    #sleep(2)
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/div[2]/div/main/div/div[1]/div/section/div/div/div[1]/div[2]/div/div")))
     comment = driver.find_element_by_xpath("/html/body/div/div/div[2]/div[2]/div/main/div/div[1]/div/section/div/div/div[1]/div[2]/div/div")
     comment.click()
+    #remains to be done
     sleep(4)
     post_box=driver.switch_to.active_element
     post_box.send_keys(msg)
-    sleep(3)
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div/div/div[2]/div[2]/div/main/div/div[1]/div/section/div/div/div[3]/div/div/button/span")))
+    #sleep(3)
     publish = driver.find_element_by_xpath("/html/body/div/div/div[2]/div[2]/div/main/div/div[1]/div/section/div/div/div[3]/div/div/button/span") 
     publish.click()
-    sleep(5)
+    #sleep(5)
 
 #This is a new piece it links all the other pieces of the gab posting process together with failsafe in place so that it can fail a step and then retry in case the wait period wasn't long enough and can fail a second time and then simply continue to run the script this makes the whole app in it's current form work way better    
 def ex_gab():
@@ -149,7 +186,7 @@ def ex_gab():
         drivergab = initgab()
     except:
         try:
-            print('fail gab init waiting 10 sec')
+            print('fail gab init waiting 5 sec')
             sleep(5)
             drivergab = initgab()
         except Exception as ex:
@@ -159,7 +196,7 @@ def ex_gab():
         [agab,bgab,cgab] = getcontrolgab(drivergab)
     except:
         try:
-            print('fail gab getcontrol waiting 10 sec')
+            print('fail gab getcontrol waiting 5 sec')
             sleep(5)
             [agab,bgab,cgab] = getcontrolgab(drivergab)
         except:
@@ -169,7 +206,7 @@ def ex_gab():
         injectcredentialsgab(agab,bgab,cgab,emailgab,passwordgab)
     except:
         try:
-            print('fail gab credentialinjection waiting 10 sec')
+            print('fail gab credentialinjection waiting 5 sec')
             sleep(5)
             injectcredentialsgab(agab,bgab,cgab,emailgab,passwordgab)
         except:
@@ -179,7 +216,7 @@ def ex_gab():
         postinggab(drivergab,msg)
     except:
         try:
-            print('fail gab posting waiting 10 sec')
+            print('fail gab posting waiting 5 sec')
             sleep(5)
             postinggab(drivergab,msg)
         except:
@@ -211,18 +248,23 @@ def injectcredentials(a,b,c,email,password):
     c.click()
 
 def posting(driver,msg):
-    sleep(9)
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[1]")))
+    #sleep(9)
     ##a8c37x1j ni8dbmo4 stjgntxs l9j0dhe7
     ##m9osqain a5q79mjw jm1wdb64 k4urcfbm
-    comment = driver.find_element_by_xpath("//*[@class='m9osqain a5q79mjw jm1wdb64 k4urcfbm']")
+    #comment = driver.find_element_by_xpath("//*[@class='m9osqain a5q79mjw jm1wdb64 k4urcfbm']")
+    comment = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[1]")
     comment.click()
+    #remains to be done
     sleep(5)
     post_box=driver.switch_to.active_element
     post_box.send_keys(msg)
-    sleep(2)
-    publish = driver.find_element_by_xpath("//*[@class='oajrlxb2 s1i5eluu gcieejh5 bn081pho humdl8nn izx4hr6d rq0escxv nhd2j8a9 j83agx80 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys d1544ag0 qt6c0cv9 tw6a2znq i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l beltcj47 p86d2i9g aot14ch1 kzx2olss cbu4d94t taijpn5t ni8dbmo4 stjgntxs k4urcfbm tv7at329']") 
+    WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[3]/div[2]/div/div/div[1]/div/span/span")))
+    #sleep(2)
+    #publish = driver.find_element_by_xpath("//*[@class='oajrlxb2 s1i5eluu gcieejh5 bn081pho humdl8nn izx4hr6d rq0escxv nhd2j8a9 j83agx80 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys d1544ag0 qt6c0cv9 tw6a2znq i1ao9s8h esuyzwwr f1sip0of lzcic4wl l9j0dhe7 abiwlrkh p8dawk7l beltcj47 p86d2i9g aot14ch1 kzx2olss cbu4d94t taijpn5t ni8dbmo4 stjgntxs k4urcfbm tv7at329']") 
+    publish = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[3]/div[2]/div/div/div[1]/div/span/span") 
     publish.click()
-    sleep(5)
+    #sleep(5)
     
 #This is a new piece it links all the other pieces of the gab posting process together with failsafe in place so that it can fail a step and then retry in case the wait period wasn't long enough and can fail a second time and then simply continue to run the script this makes the whole app in it's current form work way better    
 def ex_fb():
@@ -230,7 +272,7 @@ def ex_fb():
         driver = init()
     except:
         try:
-            print('fail facebook init waiting 10 sec')
+            print('fail facebook init waiting 5 sec')
             sleep(5)
             driver = init()
         except:
@@ -240,7 +282,7 @@ def ex_fb():
         [a,b,c] = getcontrol(driver)
     except:
         try:
-            print('fail facebook getcontrol waiting 10 sec')
+            print('fail facebook getcontrol waiting 5 sec')
             sleep(5)
             [a,b,c] = getcontrol(driver)
         except:
@@ -250,7 +292,7 @@ def ex_fb():
         injectcredentials(a,b,c,email,password)
     except:
         try:
-            print('fail facebook credentials inject waiting 10 sec')
+            print('fail facebook credentials inject waiting 5 sec')
             sleep(5)
             injectcredentials(a,b,c,email,password)
         except:
@@ -260,7 +302,7 @@ def ex_fb():
         posting(driver,msg)
     except:
         try:
-            print('fail facebook msgposting waiting 10 sec')
+            print('fail facebook msgposting waiting 5 sec')
             sleep(5)
             posting(driver,msg)
         except:
@@ -272,7 +314,8 @@ def ex_fb():
 def inittwitter():
     driver = getdriver()
     driver.get('https://twitter.com/')
-    sleep(5)
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/main/div/div/div/div[1]/div/div[3]/a[2]/div/span/span")))
+    #sleep(5)
     #click on the login button
     button = driver.find_element_by_xpath("/html/body/div/div/div/div/main/div/div/div/div[1]/div/div[3]/a[2]/div/span/span")
     button.click()
@@ -284,79 +327,109 @@ def getcredentialstwitter():
     return a,b
 
 def getfieldtwitter(driver):
-    sleep(3)
+    #sleep(3)
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[3]/div/div/span/span")))
     atwitter = driver.find_element_by_xpath("/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[1]/label/div/div[2]/div/input")
     btwitter = driver.find_element_by_xpath("/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[2]/label/div/div[2]/div/input")
     ctwitter = driver.find_element_by_xpath("/html/body/div/div/div/div[2]/main/div/div/div[2]/form/div/div[3]/div/div/span/span")
     return atwitter,btwitter,ctwitter
 
-def logintwitter(emailtwitter,passwordtwitter,atwitter,btwitter,ctwitter,drivertwitter):
+def logintwitter(emailtwitter,passwordtwitter,atwitter,btwitter,ctwitter,driver):
     atwitter.send_keys(emailtwitter)
     btwitter.send_keys(passwordtwitter)
     ctwitter.click()
-    sleep(6)
-    button = drivertwitter.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a/div/span/div/div/span/span')
-    button.click()
+    sleep(3)
+    url = driver.current_url
+    #print(url)
+    if url.find("email_disabled") != -1:
+        atwitter,btwitter,ctwitter = getfieldtwitter(driver)
+        print("contingency")
+        username = input("twitter failed I am gonna need your @username please!")
+        #print("I have the username now I should be able to send it")
+        atwitter.send_keys(username)
+        #print("username sent")
+        btwitter.send_keys(passwordtwitter)
+        ctwitter.click()
 
-def tweet(drivertwitter,msg):
-    post_box=drivertwitter.switch_to.active_element
+def postingtwitter(driver):
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a/div/span/div/div/span/span")))
+    button = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a/div/span/div/div/span/span')       
+    #button = driver.find_element_by_xpath('/html/body/div/div/div/div[2]/header/div/div/div/div[1]/div[3]/a/div/span/div/div/span/span')
+    button.click()
+def tweet(driver,msg):
+    sleep(2)
+    post_box=driver.switch_to.active_element
     post_box.send_keys(msg)
 
-def posttweet(drivertwitter):
+def posttweet(driver):
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[2]/div[4]/div/span/span")))                                                                                                                                                                                                                        
     tweetbutton = drivertwitter.find_element_by_xpath('/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[4]/div/div/div[2]/div[4]/div/span/span')
+    #tweetbutton = driver.find_element_by_xpath('/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div[3]/div/div/div/div[1]/div/div/div/div/div[2]/div[4]/div/div/div[2]/div[4]/div/span/span')                       
     tweetbutton.click()
-    sleep(2)
+
 
     
-#This is a new piece it links all the other pieces of the gab posting process together with failsafe in place so that it can fail a step and then retry in case the wait period wasn't long enough and can fail a second time and then simply continue to run the script this makes the whole app in it's current form work way better    
+#This is a new piece it links alldef ex_tw():
 def ex_tw():
     try:
-        drivertwitter = inittwitter()
+        driver = inittwitter()
     except:
         try:
-            print('fail twitter init waiting 10 sec')
+            print('fail twitter init waiting 5 sec')
             sleep(5)
-            drivertwitter = inittwitter()
+            driver = inittwitter()
         except:
             print('second fail executed with success')                            
             pass
     try:
-        [atwitter,btwitter,ctwitter] = getfieldtwitter(drivertwitter)
+        [atwitter,btwitter,ctwitter] = getfieldtwitter(driver)
     except:
         try:
-            print('fail twitter getfield waiting 10 sec')
+            print('fail twitter getfield waiting 5 sec')
             sleep(5)
-            [atwitter,btwitter,ctwitter] = getfieldtwitter(drivertwitter)
+            [atwitter,btwitter,ctwitter] = getfieldtwitter(driver)
         except:
             print('second fail executed with success')                            
             pass
     try:
-        logintwitter(emailtwitter,passwordtwitter,atwitter,btwitter,ctwitter,drivertwitter)
+        #print("logging in")
+        logintwitter(emailtwitter,passwordtwitter,atwitter,btwitter,ctwitter,driver)
     except:
         try:
-            print('fail twitter login waiting 10 sec')
+            print('fail twitter login waiting 5 sec')
             sleep(5)
-            logintwitter(emailtwitter,passwordtwitter,atwitter,btwitter,ctwitter,drivertwitter)
+            logintwitter(emailtwitter,passwordtwitter,atwitter,btwitter,ctwitter,driver)
         except:
             print('second fail executed with success')                            
             pass
     try:
-        tweet(drivertwitter,msg)
+        postingtwitter(driver)
     except:
         try:
-            print('fail twitter msg waiting 10 sec')
+            print("fail twitter postbox opening waiting 5 sec")
             sleep(5)
-            tweet(drivertwitter,msg)
+            postingtwitter(driver)
         except:
             print('second fail executed with success')                            
             pass
     try:
-        posttweet(drivertwitter)
+        tweet(driver,msg)
     except:
         try:
-            print('fail twitter msgposting waiting 10 sec')
+            print('fail twitter msg waiting 5 sec')
             sleep(5)
-            posttweet(drivertwitter)
+            tweet(driver,msg)
+        except:
+            print('second fail executed with success')                            
+            pass
+    try:
+        print('trying to post tweet')
+        posttweet(driver)
+    except:
+        try:
+            print('fail twitter msgposting waiting 5 sec')
+            sleep(5)
+            posttweet(driver)
         except:
             print('second fail executed with success')                            
             pass
@@ -367,7 +440,7 @@ def ex_tw():
 def logcredentialsindt(service, credential_list, key):
     print('il semble que certain credentials sois manquant')
 
-    [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,insta_email ,insta_pass] = credential_list
+    [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,insta_email ,insta_pass, linkedin_email, linkedin_pass] = credential_list
 
     if service.find('g') != -1:
         if gab_email == 'None':
@@ -393,6 +466,7 @@ def logcredentialsindt(service, credential_list, key):
             saveindt(crypto(pass_twitter, key), 'password pour twitter:')
         else:
             pass_twitter = twitter_pass
+        #another field should be added for id_twitter to deal with our contingency :)                                                                                
         [emailtwitter,passwordtwitter] = email_twitter,pass_twitter
 
     if service.find('f') != -1:
@@ -422,6 +496,18 @@ def logcredentialsindt(service, credential_list, key):
         else:
             pass_insta = insta_pass
         [emailinsta,passwordinsta] = email_insta,pass_insta
+    if service.find('l') != -1:
+        if linkedin_email == 'None':
+            email_linkedin = input('login pour linkedin?\n')
+            saveindt(crypto(email_linkedin, key), 'email pour linkedin:')
+        else:
+            email_linkedin = linkedin_email
+        if linkedin_pass == 'None':
+            pass_linkedin = input('mot de passe pour linkedin?\n')
+            saveindt(crypto(pass_linkedin, key), 'password pour linkedin:')
+        else:
+            pass_linkedin = linkedin_pass
+        [linkedinemail, linkedinpass] = email_linkedin, pass_linkedin
 
     #We had a problem with \n at the end of the database since the way the string is inserted in the dt the first chars are \n then the service used:encrypted(password)
     #this line simply checks the end of the file to see it there is a \n there and if there is not it simply adds it to prevent our script that chops the \n from chopping a bit of the ecrypted message
@@ -429,10 +515,10 @@ def logcredentialsindt(service, credential_list, key):
     #this fishes the credentials and stores them in the credential_list for direct use on this session
     credential_list = fishfromdt(key, service)
     #then the list is derived from credential_list
-    [gab_pass,gab_email,twitter_email,twitter_pass,facebook_email,facebook_pass,insta_email,insta_pass] = credential_list
+    [gab_pass,gab_email,twitter_email,twitter_pass,facebook_email,facebook_pass,insta_email,insta_pass,linkedin_email,linkedin_pass] = credential_list
     #which is then sent to be saved back in credential_list we do it this way because the other way caused some problem earlier
     #this should be investigated as it will render the code less overly complicated
-    return [gab_pass,gab_email,twitter_email,twitter_pass,facebook_email,facebook_pass, instagram_email, instagram_pass]
+    return [gab_pass,gab_email,twitter_email,twitter_pass,facebook_email,facebook_pass, instagram_email, instagram_pass, linkedin_email, linkedin_pass]
 
 
 #cypto engine
@@ -568,7 +654,7 @@ def fishfromdt(key, service):
     d = list(d)
     n = len(d)
     #sets default value so that if the credential doesn't exist it is equal to none in our list
-    gab_email = gab_pass = twitter_email = twitter_pass = facebook_email = facebook_pass = instagram_pass = instagram_email = str(None)
+    gab_email = gab_pass = twitter_email = twitter_pass = facebook_email = facebook_pass = instagram_pass = instagram_email = linkedin_pass = linkedin_email = str(None)
 
     for n in d:
         n = n[:n.find('\n')]
@@ -594,8 +680,12 @@ def fishfromdt(key, service):
                 instagram_email = n[n.find(':')+1:]
             if 'instagram' in n and 'password' in n:
                 instagram_pass = n[n.find(':')+1:]
-    return [gab_pass,gab_email,twitter_email,twitter_pass,facebook_email,facebook_pass,instagram_email,instagram_pass]
-
+        if service.find('l') != -1:
+            if 'linkedin' in n and 'email' in n:
+                linkedin_email = n[n.find(':')+1:]
+            if 'linkedin' in n and 'password' in n:
+                linkedin_pass = n[n.find(':')+1:]
+    return [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass]
 def decrypt(crypted, key):
     f = Fernet(key)
     decrypted = f.decrypt(crypted.encode('UTF-8'))
@@ -605,66 +695,94 @@ def decrypt(crypted, key):
     
 
 key = comparepass()
-service = input("quels services utiliser? gab(g), twitter(t), facebook(f)")
+service = input("quels services utiliser? gab(g), twitter(t), facebook(f), linkedin(l)")
 #service = input("quels services utiliser? gab(g), twitter(t), facebook(f), instagram(i)\n")
 
 credential_list = []
 credential_list = fishfromdt(key, service)
-[gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass, instagram_email, instagram_pass] = credential_list
+[gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
 
-#This check if there are missing credential and ask the user for them if any services are missing them, this probably don't work so good it needs more testing (investigated as it is now the keyword for this search)
-if service.find('g') != -1:
-    if gab_pass == "None" or gab_email == "None":
-        credential_list = logcredentialsindt(service, credential_list, key)
-        [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass] = credential_list
-if service.find('t') != -1:
-    if twitter_email == "None" or twitter_pass == "None":
-        credential_list = logcredentialsindt(service, credential_list, key)
-        [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass] = credential_list
-if service.find('f') != -1:
-    if facebook_email == "None" or facebook_pass == "None":
-        credential_list = logcredentialsindt(service, credential_list, key)
-        [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass] = credential_list
-if service.find('i') != -1:
-    if instagram_email == "None" or instagram_pass == "None":
-        credential_list = logcredentialsindt(service, credential_list, key)
-        [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass] = credential_list
-#decrypts the credential for the services we are gonna use
-if service.find('g') != -1:
-    [emailgab,passwordgab] =  decrypt(gab_email, key),decrypt(gab_pass, key)
-if service.find('f') != -1:
-    [email,password] = decrypt(facebook_email, key),decrypt(facebook_pass, key)
-if service.find('t') != -1:
-    [emailtwitter,passwordtwitter] = decrypt(twitter_email, key),decrypt(twitter_pass, key)
-if service.find('i') != -1:
-    [emailinsta,passwordinsta] = decrypt(instagram_email, key),decrypt(instagram_pass, key)
+def checkcredentials(credential_list,gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass):
+    #This check if there are missing credential and ask the user for them if any services are missing them, this probably don't work so good it needs more testing (investigated as it is now the keyword for this search)
+    if service.find('g') != -1:
+        if gab_pass == "None" or gab_email == "None":
+            credential_list = logcredentialsindt(service, credential_list, key)
+            [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
+    if service.find('t') != -1:
+        if twitter_email == "None" or twitter_pass == "None":
+            credential_list = logcredentialsindt(service, credential_list, key)
+            [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
+    if service.find('f') != -1:
+        if facebook_email == "None" or facebook_pass == "None":
+            credential_list = logcredentialsindt(service, credential_list, key)
+            [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
+    if service.find('i') != -1:
+        if instagram_email == "None" or instagram_pass == "None":
+            credential_list = logcredentialsindt(service, credential_list, key)
+            [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
+    if service.find('l') != -1:
+        if linkedin_email == "None" or linkedin_pass == "None":
+            credential_list = logcredentialsindt(service, credential_list, key)
+            [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
+    return [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass]
 
+credential_list = checkcredentials(credential_list,gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass)
+[gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass] = credential_list
+
+def decryptall():
+    #decrypts the credential for the services we are gonna use
+    emailgab=passwordgab=email=password=emailtwitter=passwordtwitter=emailinsta=passwordinsta=linkedinemail=linkedinpass = None
+    if service.find('g') != -1:
+        [emailgab,passwordgab] =  decrypt(gab_email, key),decrypt(gab_pass, key)
+    if service.find('f') != -1:
+        [email,password] = decrypt(facebook_email, key),decrypt(facebook_pass, key)
+    if service.find('t') != -1:
+        [emailtwitter,passwordtwitter] = decrypt(twitter_email, key),decrypt(twitter_pass, key)
+    if service.find('i') != -1:
+        [emailinsta,passwordinsta] = decrypt(instagram_email, key),decrypt(instagram_pass, key)
+    if service.find('l') != -1:
+        [linkedinemail,linkedinpass] = decrypt(linkedin_email, key),decrypt(linkedin_pass, key)
+    return [emailgab,passwordgab,email,password,emailtwitter,passwordtwitter,emailinsta,passwordinsta,linkedinemail,linkedinpass]
+
+
+credential_list = decryptall()
+[emailgab,passwordgab,email,password,emailtwitter,passwordtwitter,emailinsta,passwordinsta,linkedinemail,linkedinpass] = credential_list
 
 msg = input('quel message post tu aujourd\'hui?\n')
-if service.find('g') != -1:
-    #Gab
-    try:
-        ex_gab()
-    except:
-        pass
-if service.find('f') != -1:    
-     #facebook    
-    try:
-        ex_fb()
-    except:
-        pass
-if service.find('t') != -1:
-    #twiter
-    try:
-        ex_tw()
-    except:
-        pass
-if service.find('i') != -1:
-    #instagram
-    try:
-        ex_insta()
-    except:
-        pass
+
+def postonallservices():
+    if service.find('g') != -1:
+        #Gab
+        try:
+            ex_gab()
+        except:
+            pass
+    if service.find('f') != -1:    
+        #facebook    
+        try:
+            ex_fb()
+        except:
+            pass
+    if service.find('t') != -1:
+        #twiter
+        try:
+            ex_tw()
+        except:
+            pass
+    if service.find('i') != -1:
+        #instagram
+        try:
+            ex_insta()
+        except:
+            pass
+    if service.find('l') != -1:
+        #linkedin
+        try:
+            ex_linkedin()
+        except:
+            pass
+
+postonallservices()
 
 #video about one of the first versions running this is our goal the less amount of input possible
 #ideally the thing already knows the social you want to post on as well as your credentials
