@@ -15,9 +15,6 @@ from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 #This is outdated was a terminal tool to post on from tkinter.filedialog import askopenfilename
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.ui import WebDriverWait
 
 #instagram is in construction but priority is now making the prototype
 #prototype is done and working 
@@ -28,18 +25,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 """
 text posting services:
 parler.com                      
-
-
-
-
-
-
 minds.com
-instagram.com* (requires a picture in every post no all text allowed)
+-in need of integration-instagram.com (requires a picture in every post no all text allowed)
 mastodon.com
-patreon.com
-youtube.com
-tumblr
+#patreon.com
+#youtube.com
+#tumblr
 gab.com*
 facebook.com*
 twitter.com*
@@ -105,34 +96,47 @@ def ex_insta():
     driver.set_window_size(360,640)
     
     driver.get("https://www.instagram.com/")
-    
+    #print("hi there")
     magicnumber = 2
     sleep(magicnumber)    
+    #print("waitin")
     WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]")))    
     skipbtnxpath = "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]"
     skipbtn = driver.find_element_by_xpath(skipbtnxpath)
     skipbtn.click()
+    #print("waited")
     
     #emailinsta,passwordinsta
     #we here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    loginfieldxpath = "/html/body/div[1]/section/main/article/divdriver./div/div/form/div[1]/div[3]/div/label/input"
+    print("now we trying to interac with the fields this is where this crashes\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    #!!!!!!!!!!!!!!!!!!!!!!!!
+    loginfieldxpath = "/html/body/div[1]/section/main/article/div/div/div/form/div[1]/div[3]/div/label/input"
     loginfield = driver.find_element_by_xpath(loginfieldxpath)
     loginfield.send_keys(emailinsta)
-    #
+
     passwordfieldxpath = "/html/body/div[1]/section/main/article/div/div/div/form/div[1]/div[4]/div/label/input"
     passwordfield = driver.find_element_by_xpath(passwordfieldxpath)
     passwordfield.send_keys(passwordinsta)
 
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    #this doesn't work yet
     #I don't know what's up with them but they are in the notes so here they are
-    skipbtnxpath = "/html/body/div[1]/section/main/article/div/div/div/form/div[1]/div[6]/button"
-    skipbtn = driver.find_element_by_xpath(skipbtnpath)
+    skipbtnxpath = "/html/body/div[1]/section/main/article/div/div/div/form/div[1]/div[6]/button/div"
+    skipbtn = driver.find_element_by_xpath(skipbtnxpath)
     skipbtn.click()
+
+    print("should be loggedin now")
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #from here this doesn't work
     skipbtnxpath = "/html/body/div[1]/section/main/div/div/div/button"
     skipbtn = driver.find_element_by_xpath(skipbtnpath)
     skipbtn.click()
+
+    print("now we rdy to post")
     postbtnxpath = "/html/body/div[1]/section/nav[2]/div/div/div[2]/div/div/div[3]"
     postbtn = driver.find_element_by_xpath(postbtnxpath)
     postbtn.click()
+    print("6")
     next = driver.find_element_by_xpath("/html/body/div[1]/section/div[1]/header/div/div[2]/button")
     next.click()
     
