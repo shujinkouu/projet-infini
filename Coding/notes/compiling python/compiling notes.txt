@@ -1,0 +1,15 @@
+the compilation process has been fully figured out, yet it needs to be orguanized and explained here!
+
+to build .apk we use Oracle VM to create a Ubuntu virtual machine, we wire the VM to our wifi and main drive to transfer files
+then we transfer our package we wish to compile, after installing buildozer we go in the directory using the terminal.
+Then
+buildozer init
+buildozer -v android debug
+here we are it is supposed to build after a waiting period if it don't you did something wrong somewhere try compile something easier 
+to see if it works
+
+for this section we building .apk we now only need to add links and further explication for specifics !
+
+for building .exe file it is easier 
+use pip install pyinstaller to get the module
+then go to the directory of the package you want to compile then pyinstaller the_name.py

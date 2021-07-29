@@ -1,8 +1,0 @@
->>> def post():
-...     print(a)
-...
->>> a = 'boop'
->>> post()
-boop
-
-a wasn't passed to post yet it was able to access it ! 

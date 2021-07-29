@@ -1,0 +1,8 @@
+informationnal links:
+
+saving the audio locally
+
+from
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.write.html
+
+https://python-sounddevice.readthedocs.io/en/0.4.1/usage.html#device-selection

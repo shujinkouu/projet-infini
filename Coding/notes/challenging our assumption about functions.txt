@@ -1,0 +1,22 @@
+>>> def post():
+...     print(a)
+...
+>>> a = 'boop'
+>>> post()
+boop
+
+a wasn't passed to post yet it was able to access it ! 
+
+a function can access a general variable from inside itself, the opposite isn't true
+if a variable is set inside a function it lives only inside a function
+to make it a general variable one would have to use return inside the function to return a variable and save it
+like one would save a general variable normally ex:
+
+---------
+def t():
+    a = 't'
+    return a
+
+a = t()
+---------
+

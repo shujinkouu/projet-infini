@@ -1,0 +1,12 @@
+the idea was to get the pong_app and compile it to use it on a mobile device to prove that we can indeed build a basic app,
+these files also provides us with something we know to be more or less stable
+
+to get back the pong app we need the original video we used for that digging in harddrives is necessary
+video url:
+
+ubuntu on a virtual machine (Oracle VM virtualbox manager) need to figure out the wifi connection on the vm
+(link:)
+installing python on it
+now installing kivy
+
+

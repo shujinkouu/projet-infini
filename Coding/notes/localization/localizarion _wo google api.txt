@@ -1,0 +1,2 @@
+this guy succeed at getting the info without the google api that's cool but it's in c#
+https://www.codeproject.com/Articles/31965/Learn-How-to-Find-GPS-Location-on-Any-SmartPhone-a
