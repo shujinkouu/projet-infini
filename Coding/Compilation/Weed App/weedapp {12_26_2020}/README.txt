@@ -1,1 +1,0 @@
-the object is to redo the logic of the app and tiddy things up in kivy17

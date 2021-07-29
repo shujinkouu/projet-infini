@@ -1,8 +1,0 @@
-So the idea is simple make a simple telemetry app which use all the telemetry available and save all the data in a database
-
-the app is simple, a black button, spy on me.
-all the data is recorded for the user, a popup could appear after set time to prompt the user to check the database
-the idea is to render the user capable of observing all the telemetry I have available with simple authorization
-everything would be offline and never connect to the internet, the data would be the user's and the user alone.
-
-we could also encrypt the database.

@@ -1,3 +1,0 @@
-the idea is to build something like youtube but the tools used to make recommendations to the user can be open sourced an made
-easy to use and tweak so that the user can ake his own recommendations pattern and algorithm as well as basically make the version
-of youtube they want.

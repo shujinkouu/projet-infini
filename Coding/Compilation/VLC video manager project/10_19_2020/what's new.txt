@@ -1,5 +1,0 @@
-ok so keybind is done
-it opens on the old timecode
-it checks if it is near the end on closing and if it is adds _ before the name
-checks if there's already a _ in this case it doesn't add the timecode
-it saves the timecode on the beggining of the filename

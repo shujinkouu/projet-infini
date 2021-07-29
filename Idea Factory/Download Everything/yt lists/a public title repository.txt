@@ -1,6 +1,0 @@
-you save all the titles of all the videos in a public register with other mata data like size of the file youtube link and lenght of the video.
-you could also save patreon links paypal links bitcoin adress email socials ect..
-everything that matters could be on this repo all the data would be under the umbrella of the creator kept neat or not according to the user for sure
-
-
-that way everyone can search the public repository of vidoes without really being on youtube as well as support creators

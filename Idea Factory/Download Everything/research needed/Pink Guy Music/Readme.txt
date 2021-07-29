@@ -1,1 +1,0 @@
-Ok so the plan is to take the provided youtube clip and extract all the songs of pink guy and save them for later use, when that's done we could share the torrent file since no one has a downloadeable seed.

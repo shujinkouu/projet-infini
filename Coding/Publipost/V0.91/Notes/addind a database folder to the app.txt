@@ -1,9 +1,0 @@
->> import os, sys
->> os.getcwd()
-
-'C:\\Users\\Asus'
->> path = os.getcwd() + "\\database"
->> path
-
-'C:\\Users\\Asus\\database'
->> os.mkdir(path)

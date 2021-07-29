@@ -1,6 +1,0 @@
-So here's what we need to do, reread and make the code tidier and comment more maybe with some debug lines
-
-all the functions are there but ther eis no gui so that shoul maybe be delt with or maybe we can just look at
-building the app for windows like is without no gui if it works that'd be the way of getting a prototype the fastest
-
-Research needed build simple .exe of python file for windows :)
