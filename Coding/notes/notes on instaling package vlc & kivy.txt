@@ -1,0 +1,5 @@
+vlc problem was me running the win 32 version of vlc as opposed to the win 64 version of it 
+thanks to @bomben over @ https://stackoverflow.com/questions/59014318/filenotfounderror-could-not-find-module-libvlc-dll 
+for pointing this way
+
+kivy problem was kivy/deps folder not containing the right files, they were stored in kivy_deps folder in kivy I moved sld2, glew, ect which where stored in kivy_deps. Well I took those files and moved them to kivy/deps so that it would call the right files.

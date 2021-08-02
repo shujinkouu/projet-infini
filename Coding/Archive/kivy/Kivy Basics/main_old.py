@@ -1,5 +1,6 @@
 import kivy
-kivy.require('1.1.1')
+kivy.require('1.10.1')
+from kivy.deps import sdl2, glew
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
