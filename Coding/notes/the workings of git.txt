@@ -1,0 +1,28 @@
+I will use this document to explain some basics :) 
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+
+Add things to path
+
+setx path "%path%;c:\directoryPath" (set path for the user)
+setx /m path "%path%;c:\directoryPath" (set path for the system)
+
+git command:
+
+git status
+git add .
+git commit -m "Short Description" -m "Long desc."
+git push origin master
+
+If new repo:
+
+git remote add origin "new@repo.github:name/repo-name"
+git remote -v
+then
+git push origin master
+
+git push -u origin master
+this sets origin and master as default
+when using git push

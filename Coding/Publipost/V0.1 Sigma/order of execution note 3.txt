@@ -1,0 +1,32 @@
+first we get the key
+key = comparepass()
+#while the key is hodled any encrypted message can easily be decrypted
+
+checks if services are already selected in the database, those are unencrypted informations if hey don't exist the user gets prompted for them else the service is returned under the variable named service
+service = checkservice()
+
+#initializing list named credential_list as an empty list
+credential_list = []
+#uses key and services as input for the function named fishfromdt() to go ahead and search for the credential file and put the encrypted credential in the list 
+credential_list = fishfromdt(key, service)
+#unfolds the list in it's composant by declaring them as general variable
+[gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,insta_email , insta_pass, linkedin_email, linkedin_pass] = credential_list
+
+#this uses the credential_list as an input to check if any credential is saved as None if they are they and are selected as a service then the user gets prompted for the missing credentials
+credential_list = checkcredentials(credential_list,gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,insta_email , insta_pass, linkedin_email, linkedin_pass)
+#unfolding of the new checked list
+[gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,insta_email , insta_pass, linkedin_email, linkedin_pass] = credential_list
+
+#using the general variables decrypts them and stores the new list in credential_list
+credential_list = decryptall()
+#unfolds the new list as a list of decrypted credentials
+[emailgab,passwordgab,email,password,emailtwitter,passwordtwitter,emailinsta,passwordinsta,linkedinemail,linkedinpass] = credential_list
+
+#prompts the user for the message he wants to send today and saves it in the variable named msg
+msg = input('quel message post tu aujourd\'hui?\n')
+
+#uses the decrypted credentials and the services as well as the message to post on all services
+postonallservices()
+
+
+

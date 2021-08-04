@@ -1,0 +1,21 @@
+
+ex for instagram
+insta_email
+name of the variable inside credential list should be accessible as a general variable containing an cryptographically encrypted string if decoded using the key (requires a salt and a password to be created) gives access to an ununcrypted password, that's in effect in the current project right after login in
+email_insta
+temporary variable created when a variabe in credential list is equal to none, this variable is temporary and is what stores the unencrypted input the user answers with his email the variable is then encrypted and nuked, to have access to it the program just go ahead and search variable in the dt and saves them in credential list once more thus email_insta after being entered as an unencrypted string would be accessible as an encrypted string under the name insta_email
+insta_pass
+general encrypted
+pass_insta
+temporary unencrypted
+emailinsta
+those are general decrypted password they should exist for the shortest duration possible, reducing that duration should be a goal as well as making that act safer during said duration, ultimately having it be decrypted on use and then forgotten seems like a good out.
+general decrypted
+passwordinsta
+general decrypted
+
+
+originally, 
+credential list = [gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,instagram_email , instagram_pass, linkedin_email, linkedin_pass]
+
+

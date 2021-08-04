@@ -1,0 +1,1 @@
+the document option doesn't work the variable set is correctly readout but the popup doesn't show up, the thing doesn't crashed when clicking the button with empty fields.

@@ -1,0 +1,16 @@
+this is one good example of code repeat we have
+def function():
+    if service.find('l') != -1:
+        if linkedin_email == 'None':
+            email_linkedin = input('login pour linkedin?\n')
+            saveindt(crypto(email_linkedin, key), 'email pour linkedin:')
+        else:
+            email_linkedin = linkedin_email
+        if linkedin_pass == 'None':
+            pass_linkedin = input('mot de passe pour linkedin?\n')
+            saveindt(crypto(pass_linkedin, key), 'password pour linkedin:')
+        else:
+            pass_linkedin = linkedin_pass
+        [linkedinemail, linkedinpass] = email_linkedin, pass_linkedin
+
+

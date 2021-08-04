@@ -1,0 +1,25 @@
+so we have 6 variables per service two for temporary unencrypted credentials two for general encrypted credentials and two for general unencrypted credentials
+
+list
+instagram, linkedin, twitter, facebook, gab
+
+credential lists:
+uncrypted
+gab_pass ,gab_email ,twitter_email ,twitter_pass ,facebook_email ,facebook_pass ,insta_email , insta_pass, linkedin_email
+unencrypted these are derived from decryptall():
+emailgab,passwordgab,email,password,emailtwitter,passwordtwitter,emailinsta,passwordinsta,linkedinemail,linkedinpass
+created by logcredentialsindt() these are temporary and exist only in logcredentialsindt():
+email_gab,pass_gab,email_twitter,pass_twitter,email_facebook,pass_facebook,email_insta,pass_insta,email_linkedin,pass_linkedin
+
+to add services all those list have to be altered 
+
+in further version I'd like to get those unencrypted credentials temporary like the first set.
+
+Other thing if we head that way,
+the key is held for the entire duration of the session. Using it, one can decrypt any encrypted messages. the key is derived from the password
+and the password is generated as a precondition to run the app.
+
+There is no way to ask for the password as a precondition to run the app yet not hold the key during thee whole duration of the app.
+is this statement right ?
+probably not, there are ways we can get deeper and hide the key once generated or hide the held password and generate the key on use, either way a big risk in this app is to be found in this area.
+
