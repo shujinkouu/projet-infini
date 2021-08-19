@@ -24,6 +24,7 @@ class MyApp(App):
 
     def btn(self):
         print('hi')
+        #Factory is the constructor method for popups, MyPopup() is the name of targeted popup testlabel1 is the python id referenced in the .kv file text is the attribute of the element
         print(str(Factory.MyPopup().testlabel.text))
         self.var = "test"
         print(Factory.MySecondPopup().label2.text)

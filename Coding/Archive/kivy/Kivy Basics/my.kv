@@ -45,6 +45,8 @@
 <MyPopup@Popup>:
     size_hint: .8, .8
     auto_dismiss: False
+	#declaring my python variable using the form pythonvar: kvvar
+	#thefore this create a python variable under the name testlabel representing the kv id label contained in this section
     testlabel: label
     FloatLayout:
         Button:
@@ -105,21 +107,21 @@
             cols:2
 
             Label:
-                text: "var1"
+                text: "input1"
 
             TextInput:
                 id: var1
                 multiline:False
 
             Label:
-                text: "var2"
+                text: "input2"
 
             TextInput:
                 id: var2
                 multiline:False
 
             Label:
-                text: "var3"
+                text: "input3"
 
             TextInput:
                 id: var3
@@ -127,7 +129,7 @@
 #Here changing the indent has a dramatic effect on the appearance of the app
 #Try it by adding of deleting indent :)    
     Button:
-        text: "damn"
+        text: "enter"
         on_release: Factory.MyPopup().open()
 
 #        on_release: root.btn()

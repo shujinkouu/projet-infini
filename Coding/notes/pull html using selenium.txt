@@ -1,0 +1,12 @@
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from selenium import webdriver
+>>> driver = webdriver.Firefox()
+>>> html = driver.page_source
+>>> html
+'<html><head></head><body></body></html>'
+>>> html = driver.page_source
+>>> html
+'<html><head></head><body></body></html>'
+>>> driver.get('https://twitter.com/EricRWeinstein/status/1423702547248795648')
+>>> html = driver.page_source
+>>> html

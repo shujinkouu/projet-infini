@@ -1,0 +1,54 @@
+ok so 2 things are primary
+
+butter
+flour
+
+water
+yeast
+yeast are created through flour
+
+secondary
+ham
+eggs
+cheese:parmesianno reggiano
+
+bagette:
+yeast
+flour
+water
+
+->sandwichiffy
+    ham
+    butter
+        ->upgrade
+        cheese
+
+croissant:
+flour
+yeast
+water
+butter
+
+->sandwichiffy
+    cheese
+    eggs
+
+
+that's two bagette sandwich
+1 croissant sandwich
+
+coffee can easily be added on top !
+
+so
+2 primary product
+3 derivative
+1 coffee
+optional is selling the parts that's 6
+for a theoretical maximum of 12 items taking only that into account
+
+this is why the original strategy:
+to not get lost in the weeds lets only focus on two primary things
+croissant and bagette those need to be godly
+
+steps toward this goal is 
+finding flour and butter near location
