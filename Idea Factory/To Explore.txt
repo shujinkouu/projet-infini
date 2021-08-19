@@ -1,6 +1,3 @@
-To Do:
-
-
 lead vs lithium battery
 replace car battery with lithium battery
 How to make lithium battery pack ?! Reffer to the Lithium battery pack project
