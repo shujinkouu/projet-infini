@@ -1,0 +1,133 @@
+#:kivy 1.1
+## according to https://kivy.org/doc/stable/examples/gen__application__app_with_kv__py.html 
+## This is how things are supposed to be presented #:kivy 1.1
+#:import Factory kivy.factory.Factory
+<MySecondPopup@Popup>:
+    size_hint: .8, .8
+    auto_dismiss: False
+    label2: label2
+    FloatLayout:
+        Button:
+            size_hint: 0.45, 0.2
+            pos_hint: {"x":0.05, "top":0.3}
+            text: 'yes'
+            on_release:Factory.MyThirdPopup().open() ; root.dismiss()
+
+        Button:
+            size_hint: 0.45, 0.2
+            pos_hint: {"x":0.5, "top":0.3}
+            text: 'no'
+            on_release: root.dismiss()
+
+
+        Label:
+            id: label2
+            text: app.var
+            size_hint: 0.6, 0.2
+            pos_hint: {"x":0.2, "top":1}
+
+<MyThirdPopup@Popup>:
+    size_hint: .8, .8
+    auto_dismiss: False
+    FloatLayout:
+        Label:
+            text: "Hi :)"
+            size_hint: 0.6, 0.2
+            pos_hint: {"x":0.2, "top":1}
+        Button:
+            text: "Dismiss"
+            size_hint: 0.9, 0.2
+            pos_hint: {"x":0.05, "top":0.3}
+            on_release: root.dismiss()
+
+
+
+<MyPopup@Popup>:
+    size_hint: .8, .8
+    auto_dismiss: False
+    testlabel: label
+    FloatLayout:
+        Button:
+            size_hint: 0.3, 0.2
+            pos_hint: {"x":0.05, "top":0.3}
+            text: 'yes'
+            on_release:app.btn() ; Factory.MySecondPopup().open() ; root.dismiss()
+
+        Button:
+            size_hint: 0.3, 0.2
+            pos_hint: {"x":0.35, "top":0.3}
+            text: 'no'
+            on_release:Factory.MySecondPopup().open() ; root.dismiss()
+        
+        Button:
+            size_hint: 0.3, 0.2
+            pos_hint: {"x":0.65, "top":0.3}
+            text: 'Dismiss'
+            on_release:root.dismiss()
+        
+
+        Label:
+            id: label
+            text: "Hi :)"
+            size_hint: 0.6, 0.2
+            pos_hint: {"x":0.2, "top":1}
+
+
+
+
+<f>:
+    content: content
+    
+    Button:
+        id: content
+        size_hint: 0.45, 0.2
+        pos_hint: {"x":0.05, "top":0.3}
+        text: 'yes'
+        on_release: root.dismiss()
+
+    Button:
+        size_hint: 0.45, 0.2
+        pos_hint: {"x":0.5, "top":0.3}
+        text: 'no'
+
+
+<MyGrid>
+
+    var1: var1
+    var2: var2
+    var3: var3
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height 
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "var1"
+
+            TextInput:
+                id: var1
+                multiline:False
+
+            Label:
+                text: "var2"
+
+            TextInput:
+                id: var2
+                multiline:False
+
+            Label:
+                text: "var3"
+
+            TextInput:
+                id: var3
+                multiline:False
+#Here changing the indent has a dramatic effect on the appearance of the app
+#Try it by adding of deleting indent :)    
+    Button:
+        text: "damn"
+        on_release: Factory.MyPopup().open()
+
+#        on_release: root.btn()

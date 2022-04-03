@@ -1,0 +1,83 @@
+﻿from bs4 import BeautifulSoup
+import requests
+
+##first we should list the metals we want, the url corresponding to those metal prices on businessinsider
+let's aim to associate each of these with it's corresponding url
+"""
+copper = https://markets.businessinsider.com/commodities/copper-price
+tin = https://markets.businessinsider.com/commodities/tin-price
+zinc = https://markets.businessinsider.com/commodities/zinc-price
+silver = https://markets.businessinsider.com/commodities/silver-price
+nickel = https://markets.businessinsider.com/commodities/nickel-price
+chrome = 
+steel
+bronze
+multi-ply steel
+brass
+aluminium
+multi-ply aluminum bronze
+those are currency conversion so far the only one that interest us is usd->cad
+but we should aim to expand :)
+usd-cad = https://markets.businessinsider.com/currencies/usd-cad
+"""
+
+now we create our database and populate it with data
+#can be easily found under simultane, publipost tag
+
+donc à chaque startup on viens pull tout les prix et ont les save dans le document
+si cette etape ne marche pas ou plante ça load les data les plus recente à la place
+try:
+
+except:
+
+
+
+nickel_coins = {'25c': 5.05, '5c': 5.54, '10c': 2.07}
+
+def return_soup(url):
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    return soup
+
+def get_market_info(soup):
+    info = soup.find("span", class_ = "price-section__current-value").text
+    return info
+
+def get_cad_price_in_gram():
+    nickel_url = 'https://markets.businessinsider.com/commodities/nickel-price?op=1'
+    usd_cad_url = 'https://markets.businessinsider.com/currencies/usd-cad'
+    price =  get_market_info(return_soup(nickel_url))
+    usd_cad =  get_market_info(return_soup(usd_cad_url))
+    price_in_cad = float(price)*float(usd_cad)
+    cad_price_in_grams = price_in_cad/1000000
+    return cad_price_in_grams
+
+def get_coin_price(string):
+    cad_price_in_grams = get_cad_price_in_gram()
+    price_of_the_coin = cad_price_in_grams*nickel_coins[str(string)]
+    return price_of_the_coin
+
+def print_coin_price(string):
+    price_of_the_coin = get_coin_price(string)
+    print(price_of_the_coin)
+	
+
+#Those four line according the right import, will fetch prices from businessinsider, and it can be easily modified to pull prices from other things !
+#from bs4 import BeautifulSoup
+#import requests
+#
+
+r = requests.get(url)
+soup = BeautifulSoup(r.text, 'html.parser')
+info = soup.find("span", class_ = "price-section__current-value").text
+print(info)
+
+##so for each thing we only need an url so let's do it like this
+#tuple = ('nameofthemetal','url','unit')
+# a function unit to gram can be made we need everything in grams
+
+
+ton = 1000000g
+toz = 31.1035g
+#https://pypi.org/project/pyexcel-ods3/
+this enables us to change our excel spreadsheet, we now just need rapid calls and we'll have an updating spreadsheet !

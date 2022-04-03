@@ -1,0 +1,5 @@
+vlcM -> media manager
+
+my first objective is to save the timecode, this was done throught the title of the file using "{timecode}title" notation,
+I have since learned that media files have more information in them such as rating, commentary, title, author, ect. This is important
+to be thoroughly understood to properly proceed.

@@ -1,0 +1,15 @@
+pyexcel now works here how
+
+>>> sheet.save_as("C:\\Users\\Asus\\Desktop\\Blog article\\ressources\\coin and metal prices.ods")
+>>> sheet = pyexcel.get_sheet(file_name='C:\\Users\\Asus\\Desktop\\Blog article\\ressources\\coin and metal prices.ods')
+>>> sheet['A1']='bonjour'
+>>> sheet.save_as("C:\\Users\\Asus\\Desktop\\Blog article\\ressources\\coin and metal prices.ods")
+>>> sheet = pyexcel.get_sheet(file_name='C:\\Users\\Asus\\Desktop\\Blog article\\ressources\\coin and metal prices.ods')
+>>> sheet['A1']='ceci marche til'
+>>> sheet.save_as("C:\\Users\\Asus\\Desktop\\Blog article\\ressources\\coin and metal prices.ods")
+>>>
+
+yet it still doesn't keep the formating next will be that !
+
+I started doing the spreadsheet and all, a new problem as appeared the script kills any function present in the sheet
+therefore info will have to be dumped in a separate .ods file and imported in the file we are using ! 

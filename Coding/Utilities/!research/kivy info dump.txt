@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/38548075/kivy-get-textinput-from-popup

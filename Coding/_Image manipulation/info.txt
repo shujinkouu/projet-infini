@@ -1,0 +1,78 @@
+import cv2
+from tkinter.filedialog import askopenfilename
+
+path = askopenfilename()
+
+#This works for videos
+cap = cv2.VideoCapture(path)
+#This shows the video
+while True:
+    success, img = cap.read()
+    cv2.imshow("Video", img)
+    if cv2.waitKey(1) & 0xFF ==ord('q'):
+        break
+
+#trying to show a range only
+def choosetime():
+    st = int(input('start time'))
+    stinframe = st*24
+    se = int(input('end time'))
+    seinframe = se*24
+    return stinframe,seinframe
+
+stinframe,seinframe = choosetime()
+
+cwd =os.getcwd()
+out = cv2.VideoWriter(cwd+"/output.mp4", cv2.VideoWriter_fourcc(*"XVID"), 24.0, (1280, 720))
+
+
+
+def init():
+    n=0
+    while True:
+        n=n+1
+        success, img = cap.read()
+        if n >= int(stinframe) and n <= int(seinframe):
+            cv2.imshow("Video", img)
+            out.write(img)
+            if n == int(seinframe):
+                break
+        if cv2.waitKey(1) & 0xFF ==ord('q'):
+            print(str(n))
+            break
+    
+    cap.release()
+    out.release()
+    cv2.destroyAllWindows()
+
+def init(cap,stinframe,seinframe):
+    try:
+        n=0
+        while True:
+            n=n+1
+            success, img = cap.read()
+            if n >= int(stinframe) and n <= int(seinframe):
+                cv2.imshow("Video", img)
+            if n>=seinframe+10000:
+                print(str(n))
+                break
+    except:
+        print('an error occured')
+#        if cv2.waitKey(1) & 0xFF ==ord('q') & n <= int(seinframe):
+#            break
+
+
+
+
+
+
+
+
+
+
+#This works only for images
+img = cv2.imread(path)
+cv2.imshow('Output',img)
+
+#
+cv2.waitKey(0)

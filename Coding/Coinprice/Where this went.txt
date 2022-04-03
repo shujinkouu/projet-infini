@@ -1,0 +1,3 @@
+this is now a spreadsheet living in "blog articles"/ressources
+this spreadsheet gives out all the info on all the coins, prices can be 
+imported from it for use in python form using pyexcel

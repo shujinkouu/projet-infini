@@ -1,0 +1,28 @@
+
+>>> list = []
+>>> list = [()]
+>>> list[0] = 't'
+>>> list[0]
+'t'
+>>> list[0] = 't', 't', 't'
+>>> list
+[('t', 't', 't')]
+>>> list = [(),(),()]
+>>> list
+[(), (), ()]
+>>> list[0] = 't', 't', 't'
+>>> list[0]
+('t', 't', 't')
+>>> list[1] = 't'
+>>> list
+[('t', 't', 't'), 't', ()]
+>>> list.append('t')
+>>> list
+[('t', 't', 't'), 't', (), 't']
+>>> list.append('t','t','t')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: list.append() takes exactly one argument (3 given)
+>>> list.append(('t','t','t'))
+>>> list
+[('t', 't', 't'), 't', (), 't', ('t', 't', 't')]

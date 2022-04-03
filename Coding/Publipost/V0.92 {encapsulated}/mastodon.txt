@@ -1,0 +1,26 @@
+>>> from selenium import webdriver
+
+>>> driver.get('https://www.mastodon.social')
+
+#declaring the id for the email field and the id for the password field
+>>> id1 = "login_user_email"
+>>> id2 = "login_user_password"
+
+#Select the email field
+>>> login = driver.find_element_by_id(id1)
+>>> login.send_keys('j')
+
+#Select the password field
+>>> pw = driver.find_element_by_id(id2)
+>>> pw.send_keys('j')
+
+#select the button
+>>> btn = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/div[1]/form/div[2]/button')
+>>> btn.click()
+
+#Select the postbox to send our message
+>>> postbox = driver.find_element_by_class_name('autosuggest-textarea__textarea')
+>>> postbox.send_keys('h')
+
+btn = driver.find_element_by_class_name('compose-form__publish-button-wrapper')
+btn.click()

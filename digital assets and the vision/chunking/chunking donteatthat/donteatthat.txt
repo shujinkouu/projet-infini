@@ -1,0 +1,24 @@
+distribution:
+site web/blog
+model ingredients/article
+bonus: liste de produit link ingredients, marque
+
+support:
+donation, ad (?), ect...
+
+
+chunk are ingredients
+ sub chunk are specific system or pathway the ingredients is involved in
+
+chunks:
+tartrazine*
+benzoate de sodium
+edta de calcium disodique
+tetrasodium edta
+calcium chloride
+potassium sorbate
+soy lecithin
+carageenan
+natural flavours:
+ blueberry
+artificial flavours

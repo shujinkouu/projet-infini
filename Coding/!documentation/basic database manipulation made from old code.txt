@@ -1,0 +1,33 @@
+import os
+#This creates the database folder
+cwd = os.getcwd()
+path = os.getcwd() + "\\database"
+try:
+    os.mkdir(path)
+except:
+    pass
+    
+try:
+    d =  open(cwd+ "\Database\\" + "metals.txt", "r+")
+except:
+    d =  open(cwd+ "\Database\\" + "metals.txt", "x")
+    d.close()
+    d = open(cwd+"\Database\\"+"metals.txt", "r+")
+d = list(d)
+
+
+if d == []:
+    cwd = os.getcwd()
+    d = open(cwd + "\Database\\" + "metals.txt", 'a')
+    d.write(str(prices_list))
+    d.close()
+else:
+    d = open(cwd + "\Database\\" + "metals.txt", 'r')
+    #print(str(d.text))
+    print(d.read())
+    #the_list = list()
+    d.close()
+    #print(the_list)
+    
+
+

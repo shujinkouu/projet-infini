@@ -1,0 +1,33 @@
+facebook extract
+
+post:https://www.facebook.com/photo.php?fbid=10158969061733721&set=a.10151864983838721&type=3
+
+Alex T. St-Laurent
+I transferred everything on online Wise, and other stuff in crypto
+Répondre5 h
+Ik Achak
+Alex T. St-Laurent i feel cryptos is part of the cashless societu
+Répondre5 h
+Alex T. St-Laurent
+Ik Achak Cashless but decentralized is better than cash and centralized. Your dollar is still owned by the country. You just have access to it, which is why they are allowed to give you "fines". Cypto is decentralized, and owned by everybody in the network, which makes it (almost) impossible to seize.
+Répondre5 hModifié
+Mikey Davidson
+Alex T. St-Laurent every coin exchange backlogs your transactions in case the government steps in and wants to audit everyone. Its actually saved on the blockchain making it not hard to track or prove at all. You can put it in a cold wallet but the proof that you put it there will always be lingering in the data. More and more every day these exchanges are falling in line with what the government requires of them so they dont get orders to shut down. Sure we dont need canadian exchanges to store crypto but we need them to add cash in the first place.
+Répondre5 hModifié
+Alex T. St-Laurent
+Mikey Davidson Indeed. But one government alone like ours can't do jack shit about it. It would take all countries to embark. Much like TPB won the war against piracy (all authorities abandoned the idea to shut it down) , this ship can only be temporarily sinked. It will always pop back if they even manage to go this far. There are no servers to seize ! It is the best defense, with bartering systems and means of self production, against tyrannical measures like that. the fact that your money is government owned means they can just shut it down anyways and isolate you. The cash belongs to them, you just have a temporary access to it. You would need something like Gold, or another token that is unlinked with the government currency, to counter that. With crypto, there are some massive roadblocks (the first being government being 10 years behind in terms of technology) and that is if the crypto community continues to play ball (which they temporarily do to gain traction and attract investors). As soon as an economic "war" is waged against a tyrannical government, most crypto communities will not comply. Crypto is not subject to a single government. No government can "order to shut down". They can just render it illegal in that particular country after long deliberation... which can be circumvented with a proper VPN.
+The name of the game is presently to avoid the tyrannical countries, and jump between the others, and diversify, so if one falls, you don't loose too much.
+A good strategy is to have : x% in crypto (10 different) x%in CAD, x% in USD , x% in euros, x%in assets (to barter) and x% in land / housing. And of course specialized skills. Then, have your adress in 1 country, your plate in another, your driver's license in another, and always use a vpn.
+This is the skoolie way of life to minimize damage??
+Répondre5 h
+Tema Dawn
+Alex T. St-Laurent what about gold & silver?
+Répondre2 h
+Jean Merlier
+Mikey Davidson actually it is not a feature of all coin, but in the grand scheme I do agree with you this is a huge vulnerability, that and the lack of a backing
+Répondre2 min
+Jean Merlier
+Tema Dawn totally with you on that one, the holy grail would be a crypto physically backed by precious metals, and anonymous transaction record.
+Répondre1 min
+Jean Merlier
+Alex T. St-Laurent actually our governement alone, even some isolated individual alone can seep through the whole transaction history, some nodes are known and therefore it is possible to deanonymize like 70% of the chain, revealing who owns what on the blockchain, this vulnerability was known from the start and is described in the bitcoin whitepaper.

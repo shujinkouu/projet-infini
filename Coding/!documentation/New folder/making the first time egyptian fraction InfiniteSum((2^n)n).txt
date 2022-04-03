@@ -1,0 +1,49 @@
+Microsoft Windows [Version 10.0.17763.1577]
+(c) 2018 Microsoft Corporation. All rights reserved.
+The system cannot find the path specified.
+
+C:\Users\Asus>python
+Python 3.9.6 (tags/v3.9.6:db3ff76, Jun 28 2021, 15:26:21) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> def t(a):
+...   a = a*2
+...   return a
+...
+>>> t(a)
+4
+>>> a = t(a)
+>>> a = t(a)
+>>> a = t(a)
+>>> a = t(a)
+>>> a = t(a)
+>>> a
+64
+>>> n = 0
+>>> while n<10:
+...     a = t(a)
+...     n=n+1
+...
+>>> a
+65536
+>>> while n<1000:
+...     a = t(a)
+...     n=n+1
+...
+>>> a
+685765508599211085406992031398401158759299079491541508764000248557024672719959118395646962442045349201660590667234013968119772982843080987903012964780708787451812337588750783066948774723991753080189067657794974398949244241113521123786594812548932026532556574571938698730267509225767960757581162756440064
+>>> len(str(a))
+303
+>>> n= 0
+>>> while n<100:
+...     a = t(a)
+...     n=n+1
+...
+>>> len(str(a))
+333
+>>> while n<1000:
+...     a = t(a)
+...     n=n+1
+...
+>>> len(str(a))
+604

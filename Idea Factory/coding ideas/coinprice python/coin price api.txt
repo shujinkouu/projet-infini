@@ -1,0 +1,32 @@
+#Nickel spot (usd/pound) * Cad$ spot (cad/usd)
+8.9070*1.285 
+11.445495
+#Nickel spot (cad/pound) / pound to grams
+>>> 11.445395/543.5924
+0.021055104891091192
+#Nickel spot (cad/gram) * weight of the coin
+>>> (11.445395/543.5924)*5.05
+0.10632827970001052
+
+#dictionnary in python
+nickel_coins = {'25c': 5.05, '5c': 5.54, '10c': 2.07}
+
+from bs4 import BeautifulSoup
+import requests
+r = requests.get('https://markets.businessinsider.com/commodities/nickel-price?op=1')
+
+soup = BS(r.text, 'html.parser')
+soup = BeautifulSoup(r.text, 'html.parser')
+
+#fetch the price for nickel in tons (1 ton = 1000kilo = 1000000grams)
+price = soup.find("span", class_ = "price-section__current-value").text
+
+url = 'https://markets.businessinsider.com/currencies/usd-cad'
+r = requests.get(url)
+soup = BS(r.text, 'html.parser')
+soup = BeautifulSoup(r.text, 'html.parser')
+usd_cad = soup.find("span", class_ = "price-section__current-value").text
+
+price_in_cad = flaot(price)*float(usd_cad)
+cad_price_in_grams = price_in_cad/1000000
+

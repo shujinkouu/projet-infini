@@ -1,0 +1,6 @@
+The problem with bitcoin,
+the problem is very easily situated in the reading of the whitepaper it is toward the end
+
+basically a new key pair has to be generated for each transaction and the weakness is that one private key being known can reveal the identity of the whole chain. Something like that is said and it very effectively describe the problem with bitcoin.
+
+As it is now private keys of people, orguanization that own bitcoin are owned and you have to authentify to buy. Which means the first key is often known, especially in case like coinbase or wealthsimple where the key is not owned by the user. In such case the original key is known and the user key is known both public and private, thus even when offloading these bitcoin to a physical wallet or cold storage the identity can easily be traced back to the origin.

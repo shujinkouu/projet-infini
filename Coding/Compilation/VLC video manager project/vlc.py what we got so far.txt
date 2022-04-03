@@ -1,0 +1,23 @@
+import vlc.py
+
+by doing this one can then
+
+media = vlc.MediaPlayer("Path to video.mp4")
+media.play()
+media.pause()
+media.stop()
+media.set|get_time()
+
+self explanatory really try it
+
+def GetSeconds():
+     time = media.get_time()
+     time = str(time)
+     timemodified = time[:-3]
+     print("saved value is " + timemodified + " secondes")
+
+def SelecDocument():
+    from tkinter import Tk
+    from tkinter.filedialog import askopenfilename
+    Tk().withdraw()
+    filename = askopenfilename()
