@@ -1,0 +1,20 @@
+I figured out how to get most of our files back from services this leads to knowing how to download from most sites as well.
+Here's how.
+
+First you'll need a browser,
+Chrome, firefox, brave, explorer, anything will do.
+Second go on your site such as facebook for example this is where I first used this.
+Now right click select inspect element, a tab will open with the html code for the facebook page, in there you have tabs up top from which you can select "Network"
+do that!
+
+Now you are in the Network tab of the inspect element of your browser, from there you'll be able to see the internal trafic of the site!
+Now to download a .mp3 find a audio message you have on facebook and click play.
+You'll see that at that moment an .mp3 appears in the network tab, this is your file and you can download it by right clicking and opening in a new tab!
+
+Now how does this leak to other application, twofolds 
+first fold, on some website such as some streaming website this will allow you to directly download the videos you're streaming.
+second fold, on other more well protected site you'll thus have access to an .m3u8 file and a bunch of .ts files.
+Now here is how this works the .ts files each contain 2seconds of your video and the .m3u8 is a file which knits all these .ts together so you get to see your video.
+By copying the address of the .m3u8 you can thus download the video, using vlc for example.
+To do that using vlc which is slow, media->open network stream {paste the link here} (this allows you to play it in vlc)-> then using convert/save option you can ave it locally careful because it is very slow.
+Now you only need an .m3u8 downloader to go faster such as  "Vovsoft - m3u8 downloader" which works great. Happy life !

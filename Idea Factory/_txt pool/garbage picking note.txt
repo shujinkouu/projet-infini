@@ -1,0 +1,8 @@
+garbage picking ideas:
+
+coding in nodejs seems to be a pre-requisite to using openlayer which is our map api
+geolocalization is an important aspect too !
+
+what do the picker need ? 
+place to dump!
+

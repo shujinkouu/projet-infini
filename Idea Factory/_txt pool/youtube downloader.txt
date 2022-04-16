@@ -1,0 +1,82 @@
+Microsoft Windows [Version 10.0.17763.1577]
+(c) 2018 Microsoft Corporation. All rights reserved.
+The system cannot find the path specified.
+
+C:\Users\Asus>pip install pytube
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pytube
+  Downloading pytube-12.0.0-py3-none-any.whl (56 kB)
+     |¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 56 kB 569 kB/s
+Installing collected packages: pytube
+Successfully installed pytube-12.0.0
+WARNING: You are using pip version 21.2.1; however, version 22.0.4 is available.
+You should consider upgrading via the 'c:\program files\python39\python.exe -m pip install --upgrade pip' command.
+
+C:\Users\Asus>python
+Python 3.9.6 (tags/v3.9.6:db3ff76, Jun 28 2021, 15:26:21) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pytube
+>>> from pytube import Youtube
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: cannot import name 'Youtube' from 'pytube' (C:\Users\Asus\AppData\Roaming\Python\Python39\site-packages\pytube\__init__.py)
+>>> from pytube import YouTube
+>>> YouTube('https://www.youtube.com/watch?v=x09TnoQJgME').streams.first().download()
+'C:\\Users\\Asus\\travail ethique.3gpp'
+>>>
+>>> njhjhjh
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'njhjhjh' is not defined
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> njhjhjh
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'njhjhjh' is not defined
+>>>
+>>> YouTube('https://www.youtube.com/watch?v=1DsrniDGOJQ').filter(progressive=True, file_extension='mp4').streams.first().download()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'YouTube' object has no attribute 'filter'
+>>> yt = YouTube('https://www.youtube.com/watch?v=1DsrniDGOJQ')
+>>> yt.filter(progressive=True, file_extension='mp4')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'YouTube' object has no attribute 'filter'
+>>> yt.streams.filter(progressive=True, file_extension='mp4')
+[<Stream: itag="18" mime_type="video/mp4" res="360p" fps="30fps" vcodec="avc1.42001E" acodec="mp4a.40.2" progressive="True" type="video">, <Stream: itag="22" mime_type="video/mp4" res="720p" fps="30fps" vcodec="avc1.64001F" acodec="mp4a.40.2" progressive="True" type="video">]
+>>>
+>>> yt.streams.filter(progressive=True, file_extension='mp4').download()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'StreamQuery' object has no attribute 'download'
+>>> yt.streams.filter(progressive=True, file_extension='mp4').first().download()
+'C:\\Users\\Asus\\?? How to Convert Audio to Text - FREE & No Time Limits.mp4'
+>>>
+>>>
+>>> list = [https://www.youtube.com/watch?v=9GJ6XeB-vMg,https://www.youtube.com/watch?v=LCWIEMXyXRk,https://www.youtube.com/watch?v=wvZPg9eMlQo,https://www.youtube.com/watch?v=Z3KTnCe7aDs,https://www.youtube.com/watch?v=sPR_mzNu7lY,https://www.youtube.com/watch?v=UuhKw30hwNU,https://www.youtube.com/watch?v=FYVf0bRgO5Q,https://www.youtube.com/watch?v=K4efpsli19Q,https://www.youtube.com/watch?v=LFmj6omGV_c,https://www.youtube.com/watch?v=zTmmmZsn9e0,https://www.youtube.com/watch?v=LJ4bCqBAli8,https://www.youtube.com/watch?v=4Yv82PWKCGQ,https://www.youtube.com/watch?v=KAZQdak4tgw,https://www.youtube.com/watch?v=Is_QH3evpXw,https://www.youtube.com/watch?v=UuXTeUuBn4M,https://www.youtube.com/watch?v=FE_UjbQSf2w,https://www.youtube.com/watch?v=UgxI24NsK6o,https://www.youtube.com/watch?v=3Jbnd7j_dzc,https://www.youtube.com/watch?v=6jpP35aBX4A]
+  File "<stdin>", line 1
+    list = [https://www.youtube.com/watch?v=9GJ6XeB-vMg,https://www.youtube.com/watch?v=LCWIEMXyXRk,https://www.youtube.com/watch?v=wvZPg9eMlQo,https://www.youtube.com/watch?v=Z3KTnCe7aDs,https://www.youtube.com/watch?v=sPR_mzNu7lY,https://www.youtube.com/watch?v=UuhKw30hwNU,https://www.youtube.com/watch?v=FYVf0bRgO5Q,https://www.youtube.com/watch?v=K4efpsli19Q,https://www.youtube.com/watch?v=LFmj6omGV_c,https://www.youtube.com/watch?v=zTmmmZsn9e0,https://www.youtube.com/watch?v=LJ4bCqBAli8,https://www.youtube.com/watch?v=4Yv82PWKCGQ,https://www.youtube.com/watch?v=KAZQdak4tgw,https://www.youtube.com/watch?v=Is_QH3evpXw,https://www.youtube.com/watch?v=UuXTeUuBn4M,https://www.youtube.com/watch?v=FE_UjbQSf2w,https://www.youtube.com/watch?v=UgxI24NsK6o,https://www.youtube.com/watch?v=3Jbnd7j_dzc,https://www.youtube.com/watch?v=6jpP35aBX4A]
+                 ^
+SyntaxError: invalid syntax
+>>> list = [https://www.youtube.com/watch?v=9GJ6XeB-vMg,https://www.youtube.com/watch?v=LCWIEMXyXRk,https://www.youtube.com/watch?v=wvZPg9eMlQo,https://www.youtube.com/watch?v=Z3KTnCe7aDs,https://www.youtube.com/watch?v=sPR_mzNu7lY,https://www.youtube.com/watch?v=UuhKw30hwNU,https://www.youtube.com/watch?v=FYVf0bRgO5Q,https://www.youtube.com/watch?v=K4efpsli19Q,https://www.youtube.com/watch?v=LFmj6omGV_c,https://www.youtube.com/watch?v=zTmmmZsn9e0,https://www.youtube.com/watch?v=LJ4bCqBAli8,https://www.youtube.com/watch?v=4Yv82PWKCGQ,https://www.youtube.com/watch?v=KAZQdak4tgw,https://www.youtube.com/watch?v=Is_QH3evpXw,https://www.youtube.com/watch?v=UuXTeUuBn4M,https://www.youtube.com/watch?v=FE_UjbQSf2w,https://www.youtube.com/watch?v=UgxI24NsK6o,https://www.youtube.com/watch?v=3Jbnd7j_dzc,"https://www.youtube.com/watch?v=6jpP35aBX4A"]
+  File "<stdin>", line 1
+    list = [https://www.youtube.com/watch?v=9GJ6XeB-vMg,https://www.youtube.com/watch?v=LCWIEMXyXRk,https://www.youtube.com/watch?v=wvZPg9eMlQo,https://www.youtube.com/watch?v=Z3KTnCe7aDs,https://www.youtube.com/watch?v=sPR_mzNu7lY,https://www.youtube.com/watch?v=UuhKw30hwNU,https://www.youtube.com/watch?v=FYVf0bRgO5Q,https://www.youtube.com/watch?v=K4efpsli19Q,https://www.youtube.com/watch?v=LFmj6omGV_c,https://www.youtube.com/watch?v=zTmmmZsn9e0,https://www.youtube.com/watch?v=LJ4bCqBAli8,https://www.youtube.com/watch?v=4Yv82PWKCGQ,https://www.youtube.com/watch?v=KAZQdak4tgw,https://www.youtube.com/watch?v=Is_QH3evpXw,https://www.youtube.com/watch?v=UuXTeUuBn4M,https://www.youtube.com/watch?v=FE_UjbQSf2w,https://www.youtube.com/watch?v=UgxI24NsK6o,https://www.youtube.com/watch?v=3Jbnd7j_dzc,"https://www.youtube.com/watch?v=6jpP35aBX4A"]
+                 ^
+SyntaxError: invalid syntax
+>>> list = ["https://www.youtube.com/watch?v=9GJ6XeB-vMg","https://www.youtube.com/watch?v=LCWIEMXyXRk","https://www.youtube.com/watch?v=wvZPg9eMlQo","https://www.youtube.com/watch?v=Z3KTnCe7aDs","https://www.youtube.com/watch?v=sPR_mzNu7lY","https://www.youtube.com/watch?v=UuhKw30hwNU","https://www.youtube.com/watch?v=FYVf0bRgO5Q","https://www.youtube.com/watch?v=K4efpsli19Q","https://www.youtube.com/watch?v=LFmj6omGV_c","https://www.youtube.com/watch?v=zTmmmZsn9e0","https://www.youtube.com/watch?v=LJ4bCqBAli8","https://www.youtube.com/watch?v=4Yv82PWKCGQ","https://www.youtube.com/watch?v=KAZQdak4tgw","https://www.youtube.com/watch?v=Is_QH3evpXw","https://www.youtube.com/watch?v=UuXTeUuBn4M","https://www.youtube.com/watch?v=FE_UjbQSf2w","https://www.youtube.com/watch?v=UgxI24NsK6o","https://www.youtube.com/watch?v=3Jbnd7j_dzc","https://www.youtube.com/watch?v=6jpP35aBX4A"]
+
+for n in list:
+    try:
+        yt = YouTube(n)
+        yt.streams.filter(progressive=True, file_extension='mp4').first().download()
+    except:
+        print('this failed at:'+n)

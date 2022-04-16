@@ -1,0 +1,5 @@
+I aw transcribing coding into bites to be understood, and I noticed I was deleting a lot of errors of my text therefore ignoring the actual process of when I was in from of the terminal trying out what I wanted to do. All that to say that this process of trial and errors and all those individal errors are important in teaching how to code, those errors are misunderstanding.
+
+3_25_2022 
+
+So I was thinking maybe we keep the errors in separate file and try to explain what happened

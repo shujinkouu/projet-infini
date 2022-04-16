@@ -1,0 +1,4 @@
+excel interaction with python documentation
+
+https://github.com/patarapolw/pyexcel-export
+https://github.com/pyexcel/pyexcel-ods3

@@ -1,0 +1,21 @@
+A youtube downloader replacement,
+
+coding the gui will be the first and foremost part since our downloader already works
+we need an input field and a button
+
+txt should be entered as so in then input field
+url1
+url2
+url3
+url4
+ect..
+
+uppon clicking the button, we take the values in the input field
+and convert them to a list
+['url1','url2','url3','ect']
+then we can simply download the list using dl(list) which is what our whole downloader is
+
+by default this will download on the selected path 
+maybe we can host it inside a folder and create a output file then use that as the location
+
+first steps first tho

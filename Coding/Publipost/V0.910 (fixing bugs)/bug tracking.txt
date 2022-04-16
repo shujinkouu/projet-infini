@@ -1,3 +1,13 @@
 we have a bug when typing i in the services when first using (no database)
 it ask us for a password for instagram and the email and then crashes
 there is a = missing in the email instagram in the database
+
+new bug 4_11_2022 
+
+repro step
+'your services:tifgl'
+crashes, seems to be to the linkedin inclusion since it works without it
+correction it has to do with the order in which the credential are oredered in the database, this is probably linked with the way instagram interacts with it too
+instagram seems to be broken
+twitter doesn't recognize my password as the correct one
+and facebook seems to be broken as well

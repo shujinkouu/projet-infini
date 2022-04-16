@@ -1,0 +1,6 @@
+open office calculator documentation
+
+https://ask.libreoffice.org/t/mysterious-err-540-error-code/44276/2
+https://help.libreoffice.org/6.3/en-US/text/scalc/05/02140000.html
+https://ask.libreoffice.org/t/fixing-error-540/48440
+https://ask.libreoffice.org/t/automatic-update-of-external-links-has-been-disabled/34903
