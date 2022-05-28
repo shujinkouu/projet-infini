@@ -1,3 +1,6 @@
+##declaring all the stuff I need
+#There is a posibility that some of this stuff isn't required this is an important investigation
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import TimeoutException
@@ -6,7 +9,6 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.common.exceptions import NoSuchElementException
-
 from tkinter.filedialog import askopenfilename
 from time import sleep
 import base64
@@ -14,13 +16,15 @@ import os, sys
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-#This is outdated was a terminal tool to post on from tkinter.filedialog import askopenfilename
 
+##This shoul probably be useful for the windows varient to at first ask the user for inputs
+#This is outdated was a terminal tool to post on from tkinter.filedialog import askopenfilename
 #instagram is in construction but priority is now making the prototype
 #prototype is done and working 
 #actually number one priority is making sure we are updating the right version, the right version has access to linkedin,facebook,twiiter and gab and waits for element to load before clicking
 #it aso has a failsafe builtin for twitter
 #next priority is now making instagram function
+#This was done
 
 """
 text posting services:
@@ -59,15 +63,49 @@ def getdriver():
     driver = webdriver.Firefox(executable_path=cwd+"//geckodriver.exe")
     return driver
 
+
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##--------------- Linkedin block  ------------------##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+#We finished work we now just need to implement WebDriverWait instead of the sleeps and implement the dictionary of id instead of direct id refference
+#Then cleaning for clean ver
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+
 def ex_linkedin():
+    #absolute blackbox for sure, this just takes our passwords from variable that are set in the script prior
     login = linkedinemail
     password = linkedinpass
+    #see getdriver()
     driver = getdriver()
+    #uses selenium.get attribute to go to the wesite
     driver.get('https://www.linkedin.com/')
+    
+    #magic number this is an absolute fail I believe we have code to wait for an element to be present
+    #WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.ID, "user_email")))                                               
+    #this is said line this is the only tool which enables us to not use magic number to sleep for arbitrary period of time
+    #We'd need something other than this which accomplishes the same task for tkinter window and other not so easily accessible objects on websites
+    #WebDriverWait(driver, 60) --> this says to our driver to wait 60 second; .until() now we can define until what we wait
+    #This is an absolute cancerous piece of code expected_conditions.presence_of_element_located((By.ID, "user_email")))
+    #This uses expected_conditions.presence_of_element_located(( ; By.ID, "user_email"))) #This uses By.ID to find an element we have id name for.
+    #Which is what makes this limited fro now we could use the same structure with different elements,
+    #expected_conditions needs investigation
+    #same for .presence_of_element_located
+    #same for the By selector.
+
+    idx_dic = {
+    "id_field": "session_key"
+    "pass_field": "session_password"
+    "connect_btn": "sign-in-form__submit-button"
+    "post_box": "/html/body/div[6]/div[3]/div/div/div/div/div/main/div[1]/div/div[1]/button/span"
+    "share_btn": "share-box_actions"
+    }
     sleep(5)
     #login access:
+    #This is the id for the login field
     a = driver.find_element_by_id('session_key')
     a.send_keys(login)
+    
     #password access:
     b = driver.find_element_by_id("session_password")
     b.send_keys(password)
@@ -85,7 +123,22 @@ def ex_linkedin():
     d = driver.find_element_by_class_name('share-box_actions')
     sleep(1)
     d.click()                     
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
 
+
+
+
+
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##------------   Instagram Block    ----------------##
+#Not even sure this still works from memory I think they changed the id system here
+#For sure for that purposes we'll need a dictionary
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
 #instagram
 def ex_insta():
     #thanks to @Hawlett on this post "https://stackoverflow.com/questions/46771456/how-to-automate-firefox-mobile-with-selenium" for the insight
@@ -96,11 +149,17 @@ def ex_insta():
     driver = webdriver.Firefox(profile)
     driver.set_window_size(360,640)
     
+    idx_dic = {
+    "skipbtnxpath": "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]"
+    }
+    
+    
     driver.get("https://www.instagram.com/")
     #print("hi there")
     magicnumber = 3
     sleep(magicnumber)    
     #print("waitin")
+    #The magic number can be changed to something smaller so in case of failure we only wait the desired portion of time before continuing with sound code that will take care of the fact that this id is broken
     WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]")))    
     skipbtnxpath = "/html/body/div[1]/section/main/article/div/div/div/div[3]/button[1]"
     skipbtn = driver.find_element_by_xpath(skipbtnxpath)
@@ -163,6 +222,10 @@ def ex_insta():
     WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/section/div[1]/header/div/div[2]")))        
     share_btn = driver.find_element_by_xpath('/html/body/div[1]/div/div/section/div[1]/header/div/div[2]')
     share_btn.click()
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!##
 
 
     
@@ -321,13 +384,23 @@ def injectcredentials(a,b,c,email,password):
     c.click()
 
 def posting(driver,msg):
-    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[1]")))
+    
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[1]/div/div[2]/div[4]/div[1]/div[4]/a")))
+    homescreen = driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/div[2]/div[4]/div[1]/div[4]/a')
+    homescreen.click()
+    WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div/div[4]/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/span")))
+    comment_box = driver.find_element_by_xpath('/html/body/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div/div[4]/div[2]/div/div[2]/div[1]/div/div/div/div/div[1]/div/div[1]/span')
+    comment_box.click()
+    
+    #WebDriverWait(driver, 60).until(expected_conditions.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[1]")))
     #sleep(9)
     ##a8c37x1j ni8dbmo4 stjgntxs l9j0dhe7
     ##m9osqain a5q79mjw jm1wdb64 k4urcfbm
     #comment = driver.find_element_by_xpath("//*[@class='m9osqain a5q79mjw jm1wdb64 k4urcfbm']")
-    comment = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[1]")
-    comment.click()
+    
+    print('trying to comment')
+    #comment = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div/div[2]/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[1]")
+    #comment.click()
     #remains to be done
     sleep(5)
     post_box=driver.switch_to.active_element

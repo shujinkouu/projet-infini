@@ -1,0 +1,10 @@
+tidying
+
+We'd need this running in docker container in a server
+
+we need to know what the protocols are for transmitting encrypted credentials and dealing with them on a server, this is critical as if those get highjacked it be terrible.
+Then according to these protocols we'll be able to format our users input to send to the docker container
+formalizing the output should be way easier only need to detect if the task was successful or not
+to speed things up we'd need to implement what emilio suggested a pretty long time ago ! to use thread like object to execute it all at once, for this we'd also need to get rid of tkinter keyboard use in instagram file since it would interfere, this or have all the different task go to separate docker container, for easier error management. for that kubernetes will be necessary.
+
+Now in this disposition with the vantage we'll be able to dev multiple failsafe so that any and all of the socials posters fail less often.
