@@ -1,0 +1,8 @@
+note on the media manager,
+
+we can 100% reuse the code we already have, this needs to become a bit better to be used generally. Therefore I'll need to make notes of the different problems with the current approach and why in reality I end up not using our media manager !
+
+- starting path of the file query, the fact that there is such file query as opposed to simply clicking on the video
+- debugging code left 
+!This is absolutely what makes this unusable!- the keyboard binding which works even when the window isn't selected!
+!This bug can be expanded and repurposed to make a feature where you can't do something using the keyboard at the same time of watching a video, ie you'd have to close the video saving the timecode first.
